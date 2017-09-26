@@ -13,36 +13,43 @@ document.addEventListener("DOMContentLoaded", function() {
     //       Then use that as a timeline to show 'x' percent of whatevever shape / slide
     //       needs to be animated.
 
-    const currentScrollPosition = window.scrollY;
-    const currentSection = document.getElementsByClassName("homepage")[0].getAttribute("data-active-section");
-    const currentSectionContent = document.getElementsByClassName("section-slide")[0]
+    // setup
+    const current_scroll_position = window.scrollY;
+    const section_block_scroll_height = 700;
+    const total_height = 2100;
+    const current_scroll_percentage =  Math.round((current_scroll_position / total_height) * 300);
 
-    const sectionScrollHeight = document.getElementsByClassName(`section-${currentSection}`)[0].scrollHeight;
-    let sectionScrolledPercent = Math.round( (currentScrollPosition / sectionScrollHeight) * 100)
-    //let sectionScrolledPercentY = Math.round( (currentScrollPosition / sectionScrollHeight) * 140)
+    console.log(current_scroll_position);
 
-    console.log(sectionScrolledPercent)
+    // content blocks
+    const block_two_content = document.getElementsByClassName("section-content__two")[0];
 
-    const shapeToAnimate = document.getElementsByClassName("section-two__shape")[0];
+    // shapes
+    const shape_block_one = document.getElementsByClassName("shape-block__one")[0];
+    const shape_block_two = document.getElementsByClassName("shape-block__two")[0];
 
-    shapeToAnimate.style.transform = `translate3d(0, -${sectionScrolledPercent}%, 0)`;
+    // animations
+    shape_block_one.style.transform = `translate3d(0, -${current_scroll_percentage}%, 0)`;
 
-
-
-    //shapeToAnimate.style.transform = `translate3d(${80 - sectionScrolledPercentX}%, ${80- sectionScrolledPercentY}%, 0) rotate(65deg)`;
-    // shapeToAnimate.style.top = -sectionScrolledPercentY / 150 + '%';
-    //
-    // if ( ( 80- sectionScrolledPercentX) <= -30 ) {
-    //   currentSectionContent.classList.remove('section-two__content--hidden')
-    // } else {
-    //   currentSectionContent.classList.add('section-two__content--hidden')
-    // }
-
-    if ( sectionScrolledPercent >= 40 ) {
-      currentSectionContent.classList.remove('section-slide--hidden')
+    if ( current_scroll_position >= 250 ) { //show section two content
+      block_two_content.classList.remove("section-content--hidden");
     } else {
-      currentSectionContent.classList.add('section-slide--hidden')
+      block_two_content.classList.add("section-content--hidden");
     }
+
+
+    // for any shapes after the firt slide, we'll keep each section to its own timeline.
+
+    if ( current_scroll_position >= 415 ) { //show section two and three shapes
+
+      const section_block_two_top = 700;
+      const section_block_two_bottom = 1400;
+
+      console.log(current_scroll_percentage);
+
+    }
+
+
 
 
 
