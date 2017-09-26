@@ -20,6 +20,8 @@ body {
 
 .w-100 { width: 100%; }
 
+.fw-300 { font-weight: 300; }
+
 
 // END FCSS...
 
@@ -36,9 +38,12 @@ body {
 .homepage {
 
   &__container {
+    position: relative;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+
+    overflow: hidden;
   }
 
   &__content-wrapper {
@@ -72,8 +77,7 @@ body {
 
 
     &__shape {
-      position: fixed;
-      width: 1100px;
+      position: absolute;
       height: 3400px;
       width: 3400px;
 
@@ -81,7 +85,7 @@ body {
       justify-content: center;
       align-items: center;
 
-      transform: translate3d(0%, 90%, 0) rotate(65deg);
+      transform: translate3d(0vw, 0, 0) rotate(65deg);
       background-color: #252525;
     }
 
