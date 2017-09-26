@@ -22,6 +22,7 @@ body {
 
 .fw-300 { font-weight: 300; }
 
+.fc-white { color: white; }
 
 // END FCSS...
 
@@ -39,7 +40,7 @@ body {
 
   &__container {
     position: relative;
-    max-width: 1200px;
+    //max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 
@@ -63,6 +64,16 @@ body {
   justify-content: center;
   align-items: center;
 
+  &-slide {
+    opacity: 1;
+    transition: 1s ease;
+
+    &--hidden {
+      opacity: 0;
+    }
+
+  }
+
   &-one {
 
     img {
@@ -78,15 +89,19 @@ body {
 
     &__shape {
       position: absolute;
-      height: 3400px;
-      width: 3400px;
+      height: 200vh;
+      width: 100%;
 
       display: flex;
       justify-content: center;
       align-items: center;
 
-      transform: translate3d(0vw, 0, 0) rotate(65deg);
+      //transform: translate3d(0vw, 0, 0) rotate(65deg);
       background-color: #252525;
+
+
+      -webkit-clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
+      clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
     }
 
     &__content {

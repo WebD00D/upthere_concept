@@ -15,16 +15,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const currentScrollPosition = window.scrollY;
     const currentSection = document.getElementsByClassName("homepage")[0].getAttribute("data-active-section");
-    const currentSectionContent = document.getElementsByClassName("section-two__content")[0]
+    const currentSectionContent = document.getElementsByClassName("section-slide")[0]
 
     const sectionScrollHeight = document.getElementsByClassName(`section-${currentSection}`)[0].scrollHeight;
     let sectionScrolledPercent = Math.round( (currentScrollPosition / sectionScrollHeight) * 100)
     //let sectionScrolledPercentY = Math.round( (currentScrollPosition / sectionScrollHeight) * 140)
 
+    console.log(sectionScrolledPercent)
 
     const shapeToAnimate = document.getElementsByClassName("section-two__shape")[0];
 
-    shapeToAnimate.style.transform = `translate3d(-${ sectionScrolledPercent }vw, 0, 0) rotate(65deg)`;
+    shapeToAnimate.style.transform = `translate3d(0, -${sectionScrolledPercent}%, 0)`;
+
+
 
     //shapeToAnimate.style.transform = `translate3d(${80 - sectionScrolledPercentX}%, ${80- sectionScrolledPercentY}%, 0) rotate(65deg)`;
     // shapeToAnimate.style.top = -sectionScrolledPercentY / 150 + '%';
@@ -35,11 +38,13 @@ document.addEventListener("DOMContentLoaded", function() {
     //   currentSectionContent.classList.add('section-two__content--hidden')
     // }
 
-    if ( sectionScrolledPercent >= 80 ) {
-      currentSectionContent.classList.remove('section-two__content--hidden')
+    if ( sectionScrolledPercent >= 40 ) {
+      currentSectionContent.classList.remove('section-slide--hidden')
     } else {
-      currentSectionContent.classList.add('section-two__content--hidden')
+      currentSectionContent.classList.add('section-slide--hidden')
     }
+
+
 
 
 
