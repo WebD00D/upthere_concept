@@ -36,9 +36,16 @@ h3 {
     max-width: 992px;
     top: 0px; }
 
-.js_section_one_b {
+.angle-left {
   -webkit-clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
   clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%); }
+
+.angle-right {
+  -webkit-clip-path: polygon(0 0, 100% 25%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 25%, 100% 100%, 0% 100%); }
+
+.js_section_three_a {
+  height: 1000px; }
 
 .h-25p {
   height: 25%; }

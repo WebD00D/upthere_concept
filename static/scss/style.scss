@@ -20,8 +20,6 @@ h3 {
   overflow: scroll;
 }
 
-
-
 .section {
   height: 800px;
   text-align: center;
@@ -54,11 +52,19 @@ h3 {
 } // end section
 
 // slide specific styles
-.js_section_one_b {
+.angle-left {
   -webkit-clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
   clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
 }
 
+.angle-right {
+  -webkit-clip-path: polygon(0 0, 100% 25%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 25%, 100% 100%, 0% 100%);
+}
+
+.js_section_three_a {
+  height: 1000px;
+}
 
 // FCSS
 .h-25p { height: 25%; }
