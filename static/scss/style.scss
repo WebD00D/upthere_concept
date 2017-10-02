@@ -68,9 +68,18 @@ h3 {
 
 // FCSS
 .h-25p { height: 25%; }
+.h-100p { height: 100%; }
 .w-100p { width: 100%; }
 
+.top-0 { top: 0px; }
+.left-0 { left: 0px; }
+
+.o-half { opacity: 0.5; }
+
 .relative { position: relative; }
+.absolute { position: absolute; }
+
+.overflow-hidden { overflow: hidden; }
 
 .bg-light-grey { background-color: #f5f5f5; }
 .bg-dark-grey { background-color: #cccccc; }
@@ -81,3 +90,63 @@ h3 {
 .b-red { border: 1px solid red;}
 .b-blue { border: 1px solid blue;}
 .b-dashed {  border: 1px dashed #cccccc; }
+
+.bc-black { border-color: black; }
+
+.left-shape {
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #FFFFFF;
+  position: absolute;
+  left: -100%;
+  top: 0px;
+  -webkit-clip-path: polygon(0 0, 0 100%, 100% 0);
+  clip-path: polygon(0 0, 0 100%, 100% 0);
+  transition: opacity .5s ease;
+  z-index: 2;
+
+  &--visible {
+    opacity: 1;
+  }
+
+  &--shadow {
+    opacity: 0;
+    height: 100.7%;
+    width: 100.7%;
+    position: absolute;
+    left: -100%;
+    top: 0px;
+
+    background: linear-gradient(rgba(01,01,01,0.04), rgba(01,01,01,0.05));
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 0);
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+    transition: opacity .5s ease;
+    z-index: 1;
+
+
+    &--visible {
+      opacity: 1;
+    }
+
+  }
+}
+
+.right-shape {
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #d2d7d3;
+  position: absolute;
+  right: -100%;
+  top: 0px;
+  transition: opacity .5s ease;
+  -webkit-clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+
+  &--visible {
+    opacity: 1;
+  }
+
+
+}

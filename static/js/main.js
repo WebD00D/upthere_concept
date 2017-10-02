@@ -48,7 +48,35 @@ document.addEventListener("DOMContentLoaded", function() {
     const sectionTwoA = document.getElementsByClassName("js_section_two_a")[0];
     const sectionTwoB = document.getElementsByClassName("js_section_two_b")[0];
 
-    //console.log("SCROLL: ", currentScrollPosition, "section 2 A top", offset(document.getElementsByClassName("js_section_two_a")[0]).top)
+    const section_one_b_25p = document.getElementsByClassName(
+      "js_section_one_b_25p"
+    )[0];
+    const section_one_b_50p = document.getElementsByClassName(
+      "js_section_one_b_50p"
+    )[0];
+    const section_one_b_75p = document.getElementsByClassName(
+      "js_section_one_b_75p"
+    )[0];
+    const section_one_b_100p = document.getElementsByClassName(
+      "js_section_one_b_100p"
+    )[0];
+
+    const leftShape = document.getElementsByClassName("left-shape")[0];
+    const leftShapeShadow = document.getElementsByClassName("left-shape--shadow")[0];
+
+    const rightShape = document.getElementsByClassName("right-shape")[0];
+
+    if (sectionOneB.classList.contains("section--fixed")) {
+      leftShape.classList.add("left-shape--visible");
+      leftShapeShadow.classList.add("left-shape--shadow--visible");
+
+      rightShape.classList.add("right-shape--visible");
+    } else {
+      leftShape.classList.remove("left-shape--visible");
+      leftShapeShadow.classList.remove("left-shape--shadow--visible");
+
+      rightShape.classList.remove("right-shape--visible");
+    }
 
     if (currentScrollPosition >= offset(sectionTwoA).top) {
       sectionTwoA.classList.remove("section--relative");
@@ -61,6 +89,17 @@ document.addEventListener("DOMContentLoaded", function() {
     ) {
       sectionTwoA.classList.add("section--relative");
       sectionTwoA.classList.remove("section--fixed");
+    }
+
+    if (sectionTwoA.classList.contains("section--relative")) {
+      leftShape.style.left =
+        offset(section_one_b_25p).top / 1600 * 150 - 150 + "%";
+
+      leftShapeShadow.style.left =
+        offset(section_one_b_25p).top / 1600 * 150 - 150 + "%";
+
+      rightShape.style.right =
+        offset(section_one_b_25p).top / 1600 * 150 - 150 + "%";
     }
 
     const section_two_a_25p = document.getElementsByClassName(
@@ -76,8 +115,6 @@ document.addEventListener("DOMContentLoaded", function() {
       "js_section_two_a_100p"
     )[0];
 
-    console.log("SCROLL: ", currentScrollPosition);
-    console.log("SECTION 2 B TOP", offset(sectionTwoB).top);
     // console.log("SECTION TWO A 25P TOP: ", offset(section_two_a_25p).top);
     // console.log("SECTION TWO A 50P TOP: ", offset(section_two_a_50p).top);
     // console.log("SECTION TWO A 75P TOP: ", offset(section_two_a_75p).top);
