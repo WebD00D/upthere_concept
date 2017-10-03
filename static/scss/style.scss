@@ -71,6 +71,56 @@ img {
 
   }
 
+  &-three {
+
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .content-box {
+      max-width: 85%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      transition: opacity 1s ease;
+    }
+
+    .footer-box {
+      padding-top: 100px;
+      max-width: 85%;
+      width: 100%;
+      transition: opacity 1s ease;
+
+
+      &__container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        border-top: 1px solid #FFFFFF;
+        padding-top: 48px;
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      &__left {
+        width: 60%;
+        display: flex;
+      }
+
+      &__right {
+        width: 40%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+    }
+
+  }
+
   &--relative {
     position: relative;
   }
@@ -97,7 +147,7 @@ img {
 }
 
 .js_section_three_a {
-  height: 1000px;
+  height: 1200px;
 }
 
 .separator {
@@ -111,6 +161,7 @@ img {
 // FCSS
 
 .fx { display: flex; }
+.fx-1 { flex: 1; }
 .fx-j-c { justify-content: center;}
 .fx-j-s { justify-content: flex-start; }
 .fx-j-e { justify-content: flex-end; }
@@ -121,7 +172,9 @@ img {
 
 .h-25p { height: 25%; }
 .h-100p { height: 100%; }
+
 .w-100p { width: 100%; }
+.w-50p { width: 50%; }
 
 .m-b-22 { margin-bottom: 22px; }
 .m-b-48 { margin-bottom: 48px; }
@@ -142,7 +195,13 @@ img {
 .t-center { text-align: center; }
 .t-right { text-align: right; }
 
+.fs-12 { font-size: 12px; }
+.fs-14 { font-size: 14px; }
 .fs-38 { font-size: 38px; }
+
+.ls-1 { letter-spacing: 1px; }
+
+.fw-bold { font-weight: 600; }
 
 .o-half { opacity: 0.5; }
 .o-none { opacity: 0; }
@@ -320,7 +379,31 @@ img {
 
   }
 
+}
 
 
+.icon {
+
+  margin-left: 22px;
+
+  &-facebook {
+    height: 23px;
+    width: 10px;
+  }
+
+  &-twitter {
+    height: 20px;
+    width: 24px;
+  }
+
+  &-instagram {
+    height: 20px;
+    width: 20px;
+  }
+
+  &-medium {
+    height: 22px;
+    width: 22px;
+  }
 
 }
