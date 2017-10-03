@@ -34,12 +34,41 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .content-box {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+
+      &__left-col {
+        width: 50%;
+      }
+
+      &__right-col {
+        width: 50%;
+      }
+    }
+
+
   }
 
   &-two {
     display: flex;
     justify-content: center;
     align-items: center;
+
+
+    .content-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      transition: opacity 1s ease;
+
+    }
+
   }
 
   &--relative {
@@ -71,10 +100,21 @@ img {
   height: 1000px;
 }
 
+.separator {
+  height: 2px;
+  width: 116px;
+  background-color: #808080;
+  margin-bottom: 48px;
+
+}
+
 // FCSS
 
 .fx { display: flex; }
+.fx-j-c { justify-content: center;}
 .fx-j-s { justify-content: flex-start; }
+.fx-j-e { justify-content: flex-end; }
+.fx-j-sa { justify-content: space-around; }
 .fx-a-c { align-items: center;}
 .fx-a-s { align-items: flex-start; }
 .fx-col { flex-direction: column; }
@@ -84,9 +124,13 @@ img {
 .w-100p { width: 100%; }
 
 .m-b-22 { margin-bottom: 22px; }
+.m-b-48 { margin-bottom: 48px; }
 .m-t-60 { margin-top: 60px; }
 
+.m-w-85p { max-width: 85%; margin-left: auto; margin-right: auto;}
+.m-w-250p { max-width: 250px; }
 .m-w-300p { max-width: 300px; }
+.m-w-600p { max-width: 600px; }
 
 .top-0 { top: 0px; }
 .left-0 { left: 0px; }
@@ -101,6 +145,7 @@ img {
 .fs-38 { font-size: 38px; }
 
 .o-half { opacity: 0.5; }
+.o-none { opacity: 0; }
 
 .relative { position: relative; }
 .absolute { position: absolute; }
@@ -222,21 +267,60 @@ img {
     opacity: 1;
   }
 
-
 }
 
 
-.content-box {
+.phone-slide {
+  position: absolute;
+  width: 65%;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
+  align-items: center;
+  transition: .5s ease;
+  opacity: 0;
 
-  &__left-col {
-    width: 50%;
+  &__one {
+    left: 100%;
+
+    &.phone-slide--visible {
+      opacity: 1;
+      left: 0;
+    }
+
   }
 
-  &__right-col {
-    width: 50%;
+  &__two {
+    right: 100%;
+
+    &.phone-slide--visible {
+      opacity: 1;
+      right: 0;
+    }
+
   }
+
+  &__three {
+
+    left: 100%;
+
+    &.phone-slide--visible {
+      opacity: 1;
+      left: 0;
+    }
+
+  }
+
+  &__four {
+
+    right: 100%;
+
+    &.phone-slide--visible {
+      opacity: 1;
+      right: 0;
+    }
+
+  }
+
+
+
+
 }

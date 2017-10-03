@@ -62,19 +62,29 @@ document.addEventListener("DOMContentLoaded", function() {
     )[0];
 
     const leftShape = document.getElementsByClassName("left-shape")[0];
-    const leftShapeShadow = document.getElementsByClassName("left-shape--shadow")[0];
+    const leftShapeShadow = document.getElementsByClassName(
+      "left-shape--shadow"
+    )[0];
 
     const rightShape = document.getElementsByClassName("right-shape")[0];
+
+    const sectionTwoContent = document.getElementsByClassName(
+      "js_section-two-content-box"
+    )[0];
 
     if (sectionOneB.classList.contains("section--fixed")) {
       leftShape.classList.add("left-shape--visible");
       leftShapeShadow.classList.add("left-shape--shadow--visible");
-
+      sectionTwoContent.classList.remove("o-none");
       rightShape.classList.add("right-shape--visible");
+
+      if (sectionTwoA.classList.contains("section--fixed")) {
+        sectionTwoContent.classList.add("o-none");
+      }
     } else {
       leftShape.classList.remove("left-shape--visible");
       leftShapeShadow.classList.remove("left-shape--shadow--visible");
-
+      sectionTwoContent.classList.add("o-none");
       rightShape.classList.remove("right-shape--visible");
     }
 
@@ -115,34 +125,40 @@ document.addEventListener("DOMContentLoaded", function() {
       "js_section_two_a_100p"
     )[0];
 
-    // console.log("SECTION TWO A 25P TOP: ", offset(section_two_a_25p).top);
-    // console.log("SECTION TWO A 50P TOP: ", offset(section_two_a_50p).top);
-    // console.log("SECTION TWO A 75P TOP: ", offset(section_two_a_75p).top);
-    // console.log("SECTION TWO A 100P TOP: ", offset(section_two_a_100p).top);
-
     if (
       offset(section_two_a_100p).top <= offset(sectionTwoB).top &&
       offset(section_two_a_100p).top >= offset(sectionTwoB).top - 200
     ) {
-      console.log("show the first phone slide");
+      handlePhoneVisibility("js-phone-one", true);
+    } else {
+      handlePhoneVisibility("js-phone-one", false);
     }
+
     if (
       offset(section_two_a_75p).top <= offset(sectionTwoB).top &&
       offset(section_two_a_75p).top >= offset(sectionTwoB).top - 200
     ) {
-      console.log("show the second phone slide");
+      handlePhoneVisibility("js-phone-two", true);
+    } else {
+      handlePhoneVisibility("js-phone-two", false);
     }
+
     if (
       offset(section_two_a_50p).top <= offset(sectionTwoB).top &&
       offset(section_two_a_50p).top >= offset(sectionTwoB).top - 200
     ) {
-      console.log("show the third phone slide");
+      handlePhoneVisibility("js-phone-three", true);
+    } else {
+      handlePhoneVisibility("js-phone-three", false);
     }
+
     if (
       offset(section_two_a_25p).top <= offset(sectionTwoB).top &&
       offset(section_two_a_25p).top >= offset(sectionTwoB).top - 200
     ) {
-      console.log("show the fourth phone slide");
+      handlePhoneVisibility("js-phone-four", true);
+    } else {
+      handlePhoneVisibility("js-phone-four", false);
     }
 
     if (currentScrollPosition >= offset(sectionTwoB).top) {
@@ -159,3 +175,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 });
+
+function handlePhoneVisibility(el, show) {
+  if (show) {
+    setTimeout(function() {
+      document
+        .getElementsByClassName(el)[0]
+        .classList.add("phone-slide--visible");
+    }, 500);
+  } else {
+    setTimeout(function() {
+      document
+        .getElementsByClassName(el)[0]
+        .classList.remove("phone-slide--visible");
+    }, 500);
+  }
+}
