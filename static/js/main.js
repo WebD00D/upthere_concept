@@ -29,15 +29,17 @@ document.addEventListener("DOMContentLoaded", function() {
       offset(document.getElementsByClassName("js_section_one_b")[0]).top
     ) {
       sectionOneB.classList.remove("section--relative");
-      sectionOneB.classList.add("section--fixed");
+      sectionOneB.classList.add("section--fixed-b");
+
+      console.log("ADD FIXED TO SECTION ONE B")
     }
 
     if (
-      sectionOneB.classList.contains("section--fixed") &&
-      currentScrollPosition <= 800
+      sectionOneB.classList.contains("section--fixed-b") &&
+      currentScrollPosition <= 800 // was 800
     ) {
       sectionOneB.classList.add("section--relative");
-      sectionOneB.classList.remove("section--fixed");
+      sectionOneB.classList.remove("section--fixed-b");
     }
 
     // SECTION 2
@@ -72,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
       "js_section-two-content-box"
     )[0];
 
-    if (sectionOneB.classList.contains("section--fixed")) {
+    if (sectionOneB.classList.contains("section--fixed-b")) {
       leftShape.classList.add("left-shape--visible");
       leftShapeShadow.classList.add("left-shape--shadow--visible");
       sectionTwoContent.classList.remove("o-none");
@@ -110,6 +112,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
       rightShape.style.right =
         offset(section_one_b_25p).top / 1600 * 150 - 150 + "%";
+    } else {
+      leftShape.style.left = "0%";
+      leftShapeShadow.style.left = "0%";
+      rightShape.style.right = "0%";
     }
 
     const section_two_a_25p = document.getElementsByClassName(
@@ -178,16 +184,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function handlePhoneVisibility(el, show) {
   if (show) {
-    setTimeout(function() {
-      document
-        .getElementsByClassName(el)[0]
-        .classList.add("phone-slide--visible");
-    }, 500);
+    document
+      .getElementsByClassName(el)[0]
+      .classList.add("phone-slide--visible");
   } else {
-    setTimeout(function() {
-      document
-        .getElementsByClassName(el)[0]
-        .classList.remove("phone-slide--visible");
-    }, 500);
+    document
+      .getElementsByClassName(el)[0]
+      .classList.remove("phone-slide--visible");
   }
 }

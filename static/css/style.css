@@ -44,9 +44,7 @@ img {
     background-image: url("/static/img/big_sky_left.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
-    -webkit-clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
-    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%); }
+    background-position: center; }
     .section-two .content-box {
       display: flex;
       flex-direction: column;
@@ -91,6 +89,11 @@ img {
   .section--relative {
     position: relative; }
   .section--fixed {
+    position: fixed;
+    width: 100%;
+    max-width: 992px;
+    top: 0px; }
+  .section--fixed-b {
     position: fixed;
     width: 100%;
     max-width: 992px;

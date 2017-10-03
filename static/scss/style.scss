@@ -61,8 +61,8 @@ img {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    -webkit-clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
-clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
+    // -webkit-clip-path: polygon(0 18%, 100% 0, 100% 100%, 0% 100%);
+    // clip-path: polygon(0 18%, 100% 0, 100% 100%, 0% 100%);
 
 
     .content-box {
@@ -72,6 +72,7 @@ clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
       align-items: center;
       width: 100%;
       transition: opacity 1s ease;
+      //margin-top: 150px;
 
     }
 
@@ -138,6 +139,13 @@ clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
     top: 0px;
   }
 
+
+  &--fixed-b {
+    position: fixed;
+    width: 100%;
+    max-width: 992px;
+    top: 0px;
+  }
 
 } // end section
 
