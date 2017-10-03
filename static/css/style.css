@@ -40,7 +40,13 @@ img {
   .section-two {
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    background-image: url("/static/img/big_sky_left.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%); }
     .section-two .content-box {
       display: flex;
       flex-direction: column;
@@ -99,7 +105,11 @@ img {
   clip-path: polygon(0 0, 100% 25%, 100% 100%, 0% 100%); }
 
 .js_section_three_a {
-  height: 1200px; }
+  height: 1200px;
+  background-image: url("/static/img/trees.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom; }
 
 .separator {
   height: 2px;
@@ -202,6 +212,9 @@ img {
 .ls-1 {
   letter-spacing: 1px; }
 
+.lh-25 {
+  line-height: 25px; }
+
 .fw-bold {
   font-weight: 600; }
 
@@ -219,6 +232,9 @@ img {
 
 .overflow-hidden {
   overflow: hidden; }
+
+.fc-white {
+  color: #FFFFFF; }
 
 .bg-light-grey {
   background-color: #f5f5f5; }
@@ -262,6 +278,9 @@ img {
     width: 90px;
     height: 40px;
     line-height: 40px; }
+  .upthere_button--white {
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF; }
 
 .navbar {
   height: 100px;
@@ -318,7 +337,7 @@ img {
   opacity: 0;
   height: 100%;
   width: 100%;
-  background-color: #d2d7d3;
+  background-color: #F5F5F5;
   position: absolute;
   right: -100%;
   top: 0px;
