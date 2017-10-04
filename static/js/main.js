@@ -9,14 +9,16 @@ document.addEventListener("DOMContentLoaded", function() {
     return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
   }
 
+  // initialize phoneLastAnimated time
+  const initTime = Date.now();
+  document
+    .getElementsByClassName("js-phone-container")[0]
+    .setAttribute("data-phone-last-animated", initTime);
+
   function handleScroll(e) {
     const viewportHeight = window.innerHeight;
     const currentScrollPosition = window.scrollY;
     const delta = event.wheelDelta || -event.detail;
-
-    // SECTION 1
-
-    //  console.log("SCROLL: ", currentScrollPosition, "section b top", offset(document.getElementsByClassName("js_section_one_b")[0]).top)
 
     const sectionOneContainer = document.getElementsByClassName(
       "js_section_one_container"
@@ -30,8 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
     ) {
       sectionOneB.classList.remove("section--relative");
       sectionOneB.classList.add("section--fixed-b");
-
-      console.log("ADD FIXED TO SECTION ONE B")
     }
 
     if (
@@ -113,9 +113,9 @@ document.addEventListener("DOMContentLoaded", function() {
       rightShape.style.right =
         offset(section_one_b_25p).top / 1600 * 150 - 150 + "%";
     } else {
-      leftShape.style.left = "0%";
+      leftShape.style.left = "0.05%";
       leftShapeShadow.style.left = "0%";
-      rightShape.style.right = "0%";
+      rightShape.style.right = "-0.05%";
     }
 
     const section_two_a_25p = document.getElementsByClassName(
@@ -130,6 +130,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const section_two_a_100p = document.getElementsByClassName(
       "js_section_two_a_100p"
     )[0];
+
+    const phoneLastAnimated = document
+      .getElementsByClassName("js-phone-container")[0]
+      .getAttribute("data-phone-last-animated");
+      
+    const timeNow = Date.now();
+    const delay = 1500;
 
     if (
       offset(section_two_a_100p).top <= offset(sectionTwoB).top &&
@@ -182,6 +189,13 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
+function canIAnimate(lastAnimated, currentTime, delay) {
+  if (currentTime - lastAnimated > delay) {
+    return true;
+  }
+  return false;
+}
+
 function handlePhoneVisibility(el, show) {
   if (show) {
     document
@@ -192,4 +206,10 @@ function handlePhoneVisibility(el, show) {
       .getElementsByClassName(el)[0]
       .classList.remove("phone-slide--visible");
   }
+}
+
+function setLastAnimatedTime(time) {
+  document
+    .getElementsByClassName("js-phone-container")[0]
+    .setAttribute("data-phone-last-animated", time);
 }
