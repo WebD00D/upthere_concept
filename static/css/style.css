@@ -75,6 +75,9 @@ img {
       align-items: center;
       width: 100%;
       transition: opacity 1s ease; }
+      @media (max-width: 860px) {
+        .section-three .content-box {
+          flex-direction: column-reverse; } }
     .section-three .footer-box {
       padding-top: 100px;
       max-width: 85%;
@@ -88,13 +91,30 @@ img {
         padding-top: 48px;
         padding-left: 22px;
         padding-right: 22px; }
+        @media (max-width: 860px) {
+          .section-three .footer-box__container {
+            flex-direction: column;
+            padding-bottom: 30px;
+            padding-left: 0px;
+            padding-right: 0px; } }
       .section-three .footer-box__left {
         width: 60%;
         display: flex; }
+        @media (max-width: 860px) {
+          .section-three .footer-box__left {
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-items: center; } }
       .section-three .footer-box__right {
         width: 40%;
         display: flex;
         justify-content: flex-end; }
+        @media (max-width: 860px) {
+          .section-three .footer-box__right {
+            margin-top: 38px;
+            justify-content: space-around;
+            width: 100%; } }
   .section--relative {
     position: relative; }
   .section--fixed {
@@ -245,18 +265,28 @@ img {
     line-height: 19px; }
   .m-w-40p-m {
     max-width: 40%; }
+  .w-100p-m {
+    width: 100%; }
   .mobile-break {
     display: block; }
+  .d-none-m {
+    display: none; }
+  .pad-r-0-m {
+    padding-right: 0px; }
   .mobile-copy {
     max-width: 85%;
     text-align: center;
     font-size: 14px;
     margin-left: auto;
     margin-right: auto; }
+  .dib-m {
+    display: inline-block !important; }
   .t-center-m {
     text-align: center; }
   .fx-col-m {
     flex-direction: column; }
+  .fx-col-r-m {
+    flex-direction: column-reverse !important; }
   .fx-a-c-m {
     align-items: center; }
   .fx-start-m {
@@ -416,6 +446,10 @@ img {
   align-items: center;
   transition: .5s ease;
   opacity: 0; }
+  @media (max-width: 860px) {
+    .phone-slide {
+      flex-direction: column;
+      width: 100%; } }
   .phone-slide__one {
     left: 100%; }
     .phone-slide__one.phone-slide--visible {
