@@ -2,12 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   document.addEventListener("mousewheel", handleScroll);
   document.addEventListener("DOMMouseScroll", handleScroll);
 
-  function offset(el) {
-    var rect = el.getBoundingClientRect(),
-      scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-      scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
-  }
+
 
   // initialize phoneLastAnimated time
   const initTime = Date.now();
@@ -32,6 +27,9 @@ document.addEventListener("DOMContentLoaded", function() {
     ) {
       sectionOneB.classList.remove("section--relative");
       sectionOneB.classList.add("section--fixed-b");
+      updateLinks("light");
+    } else {
+      updateLinks("dark");
     }
 
     if (
@@ -113,9 +111,11 @@ document.addEventListener("DOMContentLoaded", function() {
       rightShape.style.right =
         offset(section_one_b_25p).top / 1600 * 150 - 150 + "%";
     } else {
-      leftShape.style.left = "0.05%";
+      leftShape.style.left = "0.0%";
       leftShapeShadow.style.left = "0%";
       rightShape.style.right = "-0.05%";
+
+      updateLinks("dark");
     }
 
     const section_two_a_25p = document.getElementsByClassName(
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const phoneLastAnimated = document
       .getElementsByClassName("js-phone-container")[0]
       .getAttribute("data-phone-last-animated");
-      
+
     const timeNow = Date.now();
     const delay = 1500;
 
@@ -186,8 +186,87 @@ document.addEventListener("DOMContentLoaded", function() {
       sectionTwoB.classList.add("section--relative");
       sectionTwoB.classList.remove("section--fixed");
     }
-  }
+
+    const section_three_a = document.getElementsByClassName(
+      "js_section_three_a"
+    )[0];
+    console.log("top", offset(section_three_a).top, currentScrollPosition);
+
+    const phone_four = document.getElementsByClassName("js-phone-four")[0];
+
+    if (
+      offset(section_three_a).top === 3200 &&
+      currentScrollPosition > 3400 &&
+      phone_four.classList.contains("phone-slide--visible")
+    ) {
+      updateLinks("light");
+    } else {
+      //updateLinks("dark");
+    }
+  } // end handleScroll
 });
+
+function updateLinks(shade) {
+
+  const currentScrollPosition = window.scrollY;
+  const navDivs = document
+    .getElementsByClassName("navbar__links")[0]
+    .getElementsByTagName("div");
+
+  switch (shade) {
+    case "light":
+      // set links to be white;
+      for (var i = 0; i < navDivs.length; i++) {
+        navDivs[i].classList.add("white");
+      }
+
+      document
+        .getElementsByClassName("js_signup-button")[0]
+        .classList.add("upthere_button--white");
+
+      const section_one_b = document.getElementsByClassName("js_section_one_b")[0]
+
+      if ( !section_one_b.classList.contains("section--fixed-b") ) {
+        document
+          .getElementsByClassName("logo-link-wrap")[0]
+          .classList.add("logo-link-wrap--white");
+      }
+
+      const section_three_a = document.getElementsByClassName(
+        "js_section_three_a"
+      )[0];
+      const phone_four = document.getElementsByClassName("js-phone-four")[0];
+
+      if (
+        offset(section_three_a).top === 3200 &&
+        currentScrollPosition > 3400 &&
+        phone_four.classList.contains("phone-slide--visible")
+      ) {
+        document
+          .getElementsByClassName("logo-link-wrap")[0]
+          .classList.add("logo-link-wrap--white");
+      }
+
+
+      break;
+    case "dark":
+      // set linksto be dark;
+      for (var i = 0; i < navDivs.length; i++) {
+        navDivs[i].classList.remove("white");
+      }
+
+      document
+        .getElementsByClassName("js_signup-button")[0]
+        .classList.remove("upthere_button--white");
+
+        document
+          .getElementsByClassName("logo-link-wrap")[0]
+          .classList.remove("logo-link-wrap--white");
+
+      break;
+    default:
+  }
+}
 
 function canIAnimate(lastAnimated, currentTime, delay) {
   if (currentTime - lastAnimated > delay) {
@@ -212,4 +291,12 @@ function setLastAnimatedTime(time) {
   document
     .getElementsByClassName("js-phone-container")[0]
     .setAttribute("data-phone-last-animated", time);
+}
+
+
+function offset(el) {
+  var rect = el.getBoundingClientRect(),
+    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
 }

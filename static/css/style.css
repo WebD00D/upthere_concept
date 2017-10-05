@@ -33,10 +33,19 @@ img {
       justify-content: center;
       align-items: flex-start;
       width: 100%; }
+      @media (max-width: 860px) {
+        .section-one .content-box {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center; } }
       .section-one .content-box__left-col {
         width: 50%; }
       .section-one .content-box__right-col {
         width: 50%; }
+        @media (max-width: 860px) {
+          .section-one .content-box__right-col {
+            width: 85%;
+            align-items: center; } }
   .section-two {
     display: flex;
     justify-content: center;
@@ -182,6 +191,10 @@ img {
 .m-w-600p {
   max-width: 600px; }
 
+@media (max-width: 860px) {
+  .m-w-200p-m {
+    max-width: 200px !important; } }
+
 .top-0 {
   top: 0px; }
 
@@ -211,6 +224,24 @@ img {
 
 .fs-38 {
   font-size: 38px; }
+
+.mobile-break {
+  display: none; }
+
+@media (max-width: 860px) {
+  .m-b-0-m {
+    margin-bottom: 0px; }
+  .m-t-12-m {
+    margin-top: 12px; }
+  .fs-24-m {
+    font-size: 24px; }
+  .mobile-break {
+    display: block; }
+  .t-center-m {
+    text-align: center; }
+  .watchsvg {
+    height: 30px;
+    width: 30px; } }
 
 .ls-1 {
   letter-spacing: 1px; }
@@ -287,7 +318,8 @@ img {
 
 .navbar {
   height: 100px;
-  width: 992px;
+  width: 100%;
+  max-width: 992px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -302,15 +334,20 @@ img {
     display: flex;
     align-items: center;
     font-size: 14px; }
+    @media (max-width: 860px) {
+      .navbar__links {
+        display: none; } }
     .navbar__links div {
       color: #cccccc;
       margin-left: 15px;
       margin-right: 15px; }
+      .navbar__links div.white {
+        color: #FFFFFF; }
 
 .left-shape {
   opacity: 0;
-  height: 100%;
-  width: 100%;
+  height: 101%;
+  width: 101%;
   background-color: #FFFFFF;
   position: absolute;
   left: -100%;
@@ -323,8 +360,8 @@ img {
     opacity: 1; }
   .left-shape--shadow {
     opacity: 0;
-    height: 100.7%;
-    width: 100.7%;
+    height: 101.7%;
+    width: 101.7%;
     position: absolute;
     left: -100%;
     top: 0px;
@@ -392,3 +429,13 @@ img {
   .icon-medium {
     height: 22px;
     width: 22px; }
+
+.icon-svg {
+  transition: fill .2s ease;
+  fill: currentColor; }
+
+.logo-link-wrap {
+  color: #404040;
+  transition: .2s ease; }
+  .logo-link-wrap--white {
+    color: #FFFFFF; }
