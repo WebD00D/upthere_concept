@@ -247,21 +247,62 @@ img {
     margin-bottom: 0px;
   }
 
+  .m-b-12-m {
+    margin-bottom: 12px;
+  }
+
   .m-t-12-m {
     margin-top: 12px;
+  }
+
+  .p-t-100-m {
+    padding-top: 100px;
   }
 
   .fs-24-m {
     font-size: 24px;
   }
 
+  .fs-14-m {
+    font-size: 14px;
+  }
+
+  .lh-19-m {
+    line-height: 19px;
+  }
+
+  .m-w-40p-m {
+    max-width: 40%;
+  }
+
   .mobile-break {
     display: block;
+  }
+
+  .mobile-copy {
+    max-width: 85%;
+    text-align: center;
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .t-center-m {
     text-align: center
   }
+
+  .fx-col-m {
+    flex-direction: column;
+  }
+
+  .fx-a-c-m {
+    align-items: center;
+  }
+
+  .fx-start-m {
+    align-items: flex-start;
+  }
+
 
   .watchsvg {
     height: 30px;
