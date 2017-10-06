@@ -19,8 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const sectionOneA = document.getElementsByClassName("js_section_one_a")[0];
     const sectionOneB = document.getElementsByClassName("js_section_one_b")[0];
 
-    console.log("current scroll position", currentScrollPosition, offset(sectionOneB).top);
-
     if (
       currentScrollPosition >=
       offset(document.getElementsByClassName("js_section_one_b")[0]).top + 200
@@ -35,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (
       sectionOneB.classList.contains("section--fixed-b") &&
-      currentScrollPosition <= 800 // was 800
+      currentScrollPosition <= 1070
     ) {
       sectionOneB.classList.add("section--relative");
       sectionOneB.classList.remove("section--fixed-b");
@@ -138,6 +136,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const timeNow = Date.now();
     const delay = 1500;
+
+    console.log("phoneLastAnimated", phoneLastAnimated, timeNow - phoneLastAnimated)
 
     if (
       offset(section_two_a_100p).top <= offset(sectionTwoB).top &&
