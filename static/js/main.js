@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function() {
     .setAttribute("data-phone-last-animated", initTime);
 
   function handleScroll(e) {
+
+
+
     const viewportHeight = window.innerHeight;
     const currentScrollPosition = window.scrollY;
     const delta = event.wheelDelta || -event.detail;
@@ -71,20 +74,38 @@ document.addEventListener("DOMContentLoaded", function() {
       "js_section-two-content-box"
     )[0];
 
+
+
+
     if (sectionOneB.classList.contains("section--fixed-b")) {
       leftShape.classList.add("left-shape--visible");
       leftShapeShadow.classList.add("left-shape--shadow--visible");
-      sectionTwoContent.classList.remove("o-none");
+      // sectionTwoContent.classList.remove("o-none");
       rightShape.classList.add("right-shape--visible");
 
       if (sectionTwoA.classList.contains("section--fixed")) {
-        sectionTwoContent.classList.add("o-none");
+      //  sectionTwoContent.classList.add("o-none");
       }
     } else {
       leftShape.classList.remove("left-shape--visible");
       leftShapeShadow.classList.remove("left-shape--shadow--visible");
-      sectionTwoContent.classList.add("o-none");
+      // sectionTwoContent.classList.add("o-none");
       rightShape.classList.remove("right-shape--visible");
+    }
+
+    console.log( offset(sectionOneB).top, currentScrollPosition )
+
+    if ( offset(sectionOneB).top == 800 && currentScrollPosition >= 700 ) {
+      sectionTwoContent.classList.remove("o-none");
+    } else {
+
+      if ( sectionOneB.classList.contains("section--fixed-b") ) {
+        sectionTwoContent.classList.remove("o-none");
+      } else {
+        sectionTwoContent.classList.add("o-none");
+      }
+      
+
     }
 
     if (currentScrollPosition >= offset(sectionTwoA).top) {
@@ -137,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const timeNow = Date.now();
     const delay = 1500;
 
-    console.log("phoneLastAnimated", phoneLastAnimated, timeNow - phoneLastAnimated)
+    // console.log("phoneLastAnimated", phoneLastAnimated, timeNow - phoneLastAnimated)
 
     if (
       offset(section_two_a_100p).top <= offset(sectionTwoB).top &&
