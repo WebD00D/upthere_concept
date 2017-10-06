@@ -9,9 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
     .setAttribute("data-phone-last-animated", initTime);
 
   function handleScroll(e) {
-
-
-
     const viewportHeight = window.innerHeight;
     const currentScrollPosition = window.scrollY;
     const delta = event.wheelDelta || -event.detail;
@@ -74,9 +71,6 @@ document.addEventListener("DOMContentLoaded", function() {
       "js_section-two-content-box"
     )[0];
 
-
-
-
     if (sectionOneB.classList.contains("section--fixed-b")) {
       leftShape.classList.add("left-shape--visible");
       leftShapeShadow.classList.add("left-shape--shadow--visible");
@@ -84,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
       rightShape.classList.add("right-shape--visible");
 
       if (sectionTwoA.classList.contains("section--fixed")) {
-      //  sectionTwoContent.classList.add("o-none");
+        //  sectionTwoContent.classList.add("o-none");
       }
     } else {
       leftShape.classList.remove("left-shape--visible");
@@ -93,19 +87,16 @@ document.addEventListener("DOMContentLoaded", function() {
       rightShape.classList.remove("right-shape--visible");
     }
 
-    console.log( offset(sectionOneB).top, currentScrollPosition )
+    console.log(offset(sectionOneB).top, currentScrollPosition);
 
-    if ( offset(sectionOneB).top == 800 && currentScrollPosition >= 700 ) {
+    if (offset(sectionOneB).top == 800 && currentScrollPosition >= 700) {
       sectionTwoContent.classList.remove("o-none");
     } else {
-
-      if ( sectionOneB.classList.contains("section--fixed-b") ) {
+      if (sectionOneB.classList.contains("section--fixed-b")) {
         sectionTwoContent.classList.remove("o-none");
       } else {
         sectionTwoContent.classList.add("o-none");
       }
-      
-
     }
 
     if (currentScrollPosition >= offset(sectionTwoA).top) {
@@ -151,6 +142,10 @@ document.addEventListener("DOMContentLoaded", function() {
       "js_section_two_a_100p"
     )[0];
 
+
+
+    // PHONE ANIMATION CODE...
+
     const phoneLastAnimated = document
       .getElementsByClassName("js-phone-container")[0]
       .getAttribute("data-phone-last-animated");
@@ -158,22 +153,129 @@ document.addEventListener("DOMContentLoaded", function() {
     const timeNow = Date.now();
     const delay = 1500;
 
-    // console.log("phoneLastAnimated", phoneLastAnimated, timeNow - phoneLastAnimated)
+    // NOTE:
+    // When a section animation is initialized - set a data attribute for
+    // when it was animated. If user tries scrolling again before the delay,
+    // disable the scroll.
+
+    const phoneContainer = document.getElementsByClassName(
+      "js-phone-container"
+    )[0];
+
+    const phone_one = document.getElementsByClassName("js-phone-one")[0];
+    const phone_two = document.getElementsByClassName("js-phone-two")[0];
+    const phone_three = document.getElementsByClassName("js-phone-three")[0];
+    const phone_four = document.getElementsByClassName("js-phone-four")[0];
+
+    const delayed = phoneContainer.getAttribute("data-in-current-delay");
+
+    const phone_one_has_animated = phoneContainer.getAttribute("data-phone-one-animated");
+    const phone_two_has_animated = phoneContainer.getAttribute("data-phone-two-animated");
+    const phone_three_has_animated = phoneContainer.getAttribute("data-phone-three-animated");
+    const phone_four_has_animated = phoneContainer.getAttribute("data-phone-four-animated");
 
     if (
       offset(section_two_a_100p).top <= offset(sectionTwoB).top &&
       offset(section_two_a_100p).top >= offset(sectionTwoB).top - 200
     ) {
-      handlePhoneVisibility("js-phone-one", true);
+
+      //NOTE: Alot of this code will be placed in a separate function..
+
+      // setting all other data-phone-animated to "no".
+      phoneContainer.setAttribute("data-phone-two-animated", "no");
+      phoneContainer.setAttribute("data-phone-three-animated", "no");
+      phoneContainer.setAttribute("data-phone-four-animated", "no");
+
+
+      // Are we in the middle of a delay?
+      if ( delayed === "yes" ) {
+
+      //  Date.now() (minus) data-phone-last-animated > delay  ?
+      if ( timeNow - phoneLastAnimated > delay ) {
+
+        // Threshold has past. Let's set delayed to false.
+        phoneContainer.setAttribute("data-in-current-delay", "no");
+
+      } else {
+
+        // we'll return true here for shouldAnimationDelay();
+        e.preventDefault();
+      }
+
+      } else { // delayed === no
+
+        // has this section already been animated in the same "section scroll session" ?
+        if ( phoneContainer.getAttribute("data-phone-one-animated") === "no" ) {
+
+          // 1. run the animation.
+          handlePhoneVisibility("js-phone-one","show");
+
+          // 2. set data-phone-last-animated to Date.now()
+          phoneContainer.setAttribute("data-phone-last-animated", timeNow );
+          phoneContainer.setAttribute("data-in-current-delay", "yes");
+          phoneContainer.setAttribute("data-phone-one-animated", "yes");
+
+
+        }  else {
+            // else it has an we don't need to run anything let the user scroll.
+            // we'll return false here for shouldAnimationDelay();
+        }
+
+      }
+
+
     } else {
+
       handlePhoneVisibility("js-phone-one", false);
     }
+
 
     if (
       offset(section_two_a_75p).top <= offset(sectionTwoB).top &&
       offset(section_two_a_75p).top >= offset(sectionTwoB).top - 200
     ) {
-      handlePhoneVisibility("js-phone-two", true);
+      // setting all other data-phone-animated to "no".
+      phoneContainer.setAttribute("data-phone-one-animated", "no");
+      phoneContainer.setAttribute("data-phone-three-animated", "no");
+      phoneContainer.setAttribute("data-phone-four-animated", "no");
+
+
+      // Are we in the middle of a delay?
+      if ( delayed === "yes" ) {
+
+      //  Date.now() (minus) data-phone-last-animated > delay  ?
+      if ( timeNow - phoneLastAnimated > delay ) {
+
+        // Threshold has past. Let's set delayed to false.
+        phoneContainer.setAttribute("data-in-current-delay", "no");
+
+      } else {
+
+        // we'll return true here for shouldAnimationDelay();
+        e.preventDefault();
+      }
+
+      } else { // delayed === no
+
+        // has this section already been animated in the same "section scroll session" ?
+        if ( phoneContainer.getAttribute("data-phone-two-animated") === "no" ) {
+
+          // 1. run the animation.
+          handlePhoneVisibility("js-phone-two","show");
+
+          // 2. set data-phone-last-animated to Date.now()
+          phoneContainer.setAttribute("data-phone-last-animated", timeNow );
+          phoneContainer.setAttribute("data-in-current-delay", "yes");
+          phoneContainer.setAttribute("data-phone-two-animated", "yes");
+
+
+        }  else {
+            // else it has an we don't need to run anything let the user scroll.
+            // we'll return false here for shouldAnimationDelay();
+        }
+
+      }
+
     } else {
       handlePhoneVisibility("js-phone-two", false);
     }
@@ -182,7 +284,49 @@ document.addEventListener("DOMContentLoaded", function() {
       offset(section_two_a_50p).top <= offset(sectionTwoB).top &&
       offset(section_two_a_50p).top >= offset(sectionTwoB).top - 200
     ) {
-      handlePhoneVisibility("js-phone-three", true);
+      // handlePhoneVisibility("js-phone-three", true);
+
+      // setting all other data-phone-animated to "no".
+      phoneContainer.setAttribute("data-phone-one-animated", "no");
+      phoneContainer.setAttribute("data-phone-two-animated", "no");
+      phoneContainer.setAttribute("data-phone-four-animated", "no");
+
+      // Are we in the middle of a delay?
+      if ( delayed === "yes" ) {
+
+      //  Date.now() (minus) data-phone-last-animated > delay  ?
+      if ( timeNow - phoneLastAnimated > delay ) {
+
+        // Threshold has past. Let's set delayed to false.
+        phoneContainer.setAttribute("data-in-current-delay", "no");
+
+      } else {
+
+        // we'll return true here for shouldAnimationDelay();
+        e.preventDefault();
+      }
+
+      } else { // delayed === no
+
+        // has this section already been animated in the same "section scroll session" ?
+        if ( phoneContainer.getAttribute("data-phone-three-animated") === "no" ) {
+
+          // 1. run the animation.
+          handlePhoneVisibility("js-phone-three","show");
+
+          // 2. set data-phone-last-animated to Date.now()
+          phoneContainer.setAttribute("data-phone-last-animated", timeNow );
+          phoneContainer.setAttribute("data-in-current-delay", "yes");
+          phoneContainer.setAttribute("data-phone-three-animated", "yes");
+
+
+        }  else {
+            // else it has an we don't need to run anything let the user scroll.
+            // we'll return false here for shouldAnimationDelay();
+        }
+
+      }
+
     } else {
       handlePhoneVisibility("js-phone-three", false);
     }
@@ -191,10 +335,65 @@ document.addEventListener("DOMContentLoaded", function() {
       offset(section_two_a_25p).top <= offset(sectionTwoB).top &&
       offset(section_two_a_25p).top >= offset(sectionTwoB).top - 200
     ) {
-      handlePhoneVisibility("js-phone-four", true);
+
+      // setting all other data-phone-animated to "no".
+      phoneContainer.setAttribute("data-phone-one-animated", "no");
+      phoneContainer.setAttribute("data-phone-two-animated", "no");
+      phoneContainer.setAttribute("data-phone-three-animated", "no");
+
+      // Are we in the middle of a delay?
+      if ( delayed === "yes" ) {
+
+      //  Date.now() (minus) data-phone-last-animated > delay  ?
+      if ( timeNow - phoneLastAnimated > delay ) {
+
+        // Threshold has past. Let's set delayed to false.
+        phoneContainer.setAttribute("data-in-current-delay", "no");
+
+      } else {
+
+        // we'll return true here for shouldAnimationDelay();
+        e.preventDefault();
+      }
+
+      } else { // delayed === no
+
+        // has this section already been animated in the same "section scroll session" ?
+        if ( phoneContainer.getAttribute("data-phone-four-animated") === "no" ) {
+
+          // 1. run the animation.
+          handlePhoneVisibility("js-phone-four","show");
+
+          // 2. set data-phone-last-animated to Date.now()
+          phoneContainer.setAttribute("data-phone-last-animated", timeNow );
+          phoneContainer.setAttribute("data-in-current-delay", "yes");
+          phoneContainer.setAttribute("data-phone-four-animated", "yes");
+
+
+        }  else {
+            // else it has an we don't need to run anything let the user scroll.
+            // we'll return false here for shouldAnimationDelay();
+        }
+
+      }
+
+      //handlePhoneVisibility("js-phone-four", true);
+
     } else {
       handlePhoneVisibility("js-phone-four", false);
     }
+
+
+    // END PHONE ANIMATION CODE...
+
+    // const sec_3 = document.getElementsByClassName("section-three")[0];
+    //
+    // if ( offset(sec_3).top == 3200 ) {
+    //   phoneContainer.setAttribute("data-phone-four-animated", "no");
+    // }
+
+
+
 
     if (currentScrollPosition >= offset(sectionTwoB).top) {
       sectionTwoB.classList.remove("section--relative");
@@ -213,13 +412,14 @@ document.addEventListener("DOMContentLoaded", function() {
       "js_section_three_a"
     )[0];
 
-    const phone_four = document.getElementsByClassName("js-phone-four")[0];
+  //  const phone_four = document.getElementsByClassName("js-phone-four")[0];
 
     if (
       offset(section_three_a).top === 3200 &&
       currentScrollPosition > 3400 &&
       phone_four.classList.contains("phone-slide--visible")
     ) {
+
       updateLinks("light");
     } else {
       //updateLinks("dark");
@@ -289,12 +489,7 @@ function updateLinks(shade) {
   }
 }
 
-function canIAnimate(lastAnimated, currentTime, delay) {
-  if (currentTime - lastAnimated > delay) {
-    return true;
-  }
-  return false;
-}
+
 
 function handlePhoneVisibility(el, show) {
   if (show) {
