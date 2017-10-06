@@ -53,14 +53,18 @@ img {
     background-image: url("/static/img/big_sky_left.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; }
+    background-position: center;
+    -webkit-clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
+    height: 1000px; }
     .section-two .content-box {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       width: 100%;
-      transition: opacity 1s ease; }
+      transition: opacity 1s ease;
+      margin-top: 25%; }
   .section-three {
     height: 100%;
     width: 100%;
@@ -126,7 +130,12 @@ img {
     position: fixed;
     width: 100%;
     max-width: 992px;
-    top: 0px; }
+    top: -250px; }
+  .section--one-b-fixed {
+    position: fixed;
+    width: 100%;
+    max-width: 992px;
+    top: -200px; }
 
 .angle-left {
   -webkit-clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);

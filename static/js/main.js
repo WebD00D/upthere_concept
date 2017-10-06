@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function() {
   document.addEventListener("mousewheel", handleScroll);
   document.addEventListener("DOMMouseScroll", handleScroll);
 
-
-
   // initialize phoneLastAnimated time
   const initTime = Date.now();
   document
@@ -21,11 +19,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const sectionOneA = document.getElementsByClassName("js_section_one_a")[0];
     const sectionOneB = document.getElementsByClassName("js_section_one_b")[0];
 
+    console.log("current scroll position", currentScrollPosition, offset(sectionOneB).top);
+
     if (
       currentScrollPosition >=
-      offset(document.getElementsByClassName("js_section_one_b")[0]).top
+      offset(document.getElementsByClassName("js_section_one_b")[0]).top + 200
     ) {
       sectionOneB.classList.remove("section--relative");
+      // sectionOneB.classList.add("section--fixed-b");
       sectionOneB.classList.add("section--fixed-b");
       updateLinks("light");
     } else {
@@ -190,7 +191,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const section_three_a = document.getElementsByClassName(
       "js_section_three_a"
     )[0];
-    console.log("top", offset(section_three_a).top, currentScrollPosition);
 
     const phone_four = document.getElementsByClassName("js-phone-four")[0];
 
@@ -207,7 +207,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function updateLinks(shade) {
-
   const currentScrollPosition = window.scrollY;
   const navDivs = document
     .getElementsByClassName("navbar__links")[0]
@@ -224,9 +223,11 @@ function updateLinks(shade) {
         .getElementsByClassName("js_signup-button")[0]
         .classList.add("upthere_button--white");
 
-      const section_one_b = document.getElementsByClassName("js_section_one_b")[0]
+      const section_one_b = document.getElementsByClassName(
+        "js_section_one_b"
+      )[0];
 
-      if ( !section_one_b.classList.contains("section--fixed-b") ) {
+      if (!section_one_b.classList.contains("section--fixed-b")) {
         document
           .getElementsByClassName("logo-link-wrap")[0]
           .classList.add("logo-link-wrap--white");
@@ -247,7 +248,6 @@ function updateLinks(shade) {
           .classList.add("logo-link-wrap--white");
       }
 
-
       break;
     case "dark":
       // set linksto be dark;
@@ -259,9 +259,9 @@ function updateLinks(shade) {
         .getElementsByClassName("js_signup-button")[0]
         .classList.remove("upthere_button--white");
 
-        document
-          .getElementsByClassName("logo-link-wrap")[0]
-          .classList.remove("logo-link-wrap--white");
+      document
+        .getElementsByClassName("logo-link-wrap")[0]
+        .classList.remove("logo-link-wrap--white");
 
       break;
     default:
@@ -292,7 +292,6 @@ function setLastAnimatedTime(time) {
     .getElementsByClassName("js-phone-container")[0]
     .setAttribute("data-phone-last-animated", time);
 }
-
 
 function offset(el) {
   var rect = el.getBoundingClientRect(),
