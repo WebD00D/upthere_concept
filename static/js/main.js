@@ -207,6 +207,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
           // 1. run the animation.
           handlePhoneVisibility("js-phone-one","show");
+          handleIndicatorChange("one");
 
           // 2. set data-phone-last-animated to Date.now()
           phoneContainer.setAttribute("data-phone-last-animated", timeNow );
@@ -260,6 +261,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
           // 1. run the animation.
           handlePhoneVisibility("js-phone-two","show");
+          handleIndicatorChange("two");
 
           // 2. set data-phone-last-animated to Date.now()
           phoneContainer.setAttribute("data-phone-last-animated", timeNow );
@@ -311,6 +313,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
           // 1. run the animation.
           handlePhoneVisibility("js-phone-three","show");
+          handleIndicatorChange("three");
 
           // 2. set data-phone-last-animated to Date.now()
           phoneContainer.setAttribute("data-phone-last-animated", timeNow );
@@ -361,12 +364,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
           // 1. run the animation.
           handlePhoneVisibility("js-phone-four","show");
+          handleIndicatorChange("four");
 
           // 2. set data-phone-last-animated to Date.now()
           phoneContainer.setAttribute("data-phone-last-animated", timeNow );
           phoneContainer.setAttribute("data-in-current-delay", "no");
           phoneContainer.setAttribute("data-phone-four-animated", "yes");
-
 
         }  else {
             // else it has an we don't need to run anything let the user scroll.
@@ -381,7 +384,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
       handlePhoneVisibility("js-phone-four", false);
     }
-
 
     // END PHONE ANIMATION CODE...
 
@@ -429,9 +431,10 @@ document.addEventListener("DOMContentLoaded", function() {
       phoneContainerDup.setAttribute("data-phone-four-animated", "no");
     }
 
+    console.log(offset(document.getElementsByClassName("js_section_two_a_25p")[0]).top)
 
     const sec3a = document.getElementsByClassName("js_section_three_a")[0];
-    console.log(offset(sec3a).top);
+
     if ( offset(sec3a).top === 3200 ) {
      // document.getElementsByClassName("js-phone-container")[0].setAttribute("data-phone-four-animated", "no");
     }
@@ -439,6 +442,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
   } // end handleScroll
 });
+
+function handleIndicatorChange(activeSlide) {
+
+  const indicators = document.getElementsByClassName("slide-indicators__indicator");
+
+  for ( var i = 0; i < indicators.length; i++ ) {
+    indicators[i].classList.remove("slide-indicators__indicator--active");
+  }
+
+  document.getElementsByClassName("js_indicator_" + activeSlide)[0].classList.add("slide-indicators__indicator--active");
+
+}
 
 function updateLinks(shade) {
   const currentScrollPosition = window.scrollY;

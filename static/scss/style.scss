@@ -269,6 +269,7 @@ img {
 .h-25p { height: 25%; }
 .h-100p { height: 100%; }
 
+
 .w-100p { width: 100%; }
 .w-50p { width: 50%; }
 
@@ -341,6 +342,10 @@ img {
 
   .m-w-40p-m {
     max-width: 40%;
+  }
+
+  .w-75p-m {
+    width: 75%;
   }
 
   .w-100p-m {
@@ -644,4 +649,34 @@ img {
     &--white {
       color: #FFFFFF;
     }
+  }
+
+
+  .slide-indicators {
+
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 30px;
+    top: 58%;
+
+    @media (min-width: 801px) {
+      display: none;
+    }
+
+    &__indicator {
+
+      height: 10px;
+      width: 10px;
+      background-color: #D0D0D0;
+      transition: .2s ease;
+      margin-bottom: 5px;
+      border-radius: 50%;
+
+      &--active {
+        background-color: #404040
+      }
+
+    }
+
   }
