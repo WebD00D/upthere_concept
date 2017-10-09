@@ -160,6 +160,10 @@ img {
   -webkit-clip-path: polygon(0 0, 100% 25%, 100% 100%, 0% 100%);
   clip-path: polygon(0 0, 100% 25%, 100% 100%, 0% 100%); }
 
+@media (max-width: 860px) {
+  .js_section_one_a {
+    overflow: scroll; } }
+
 .js_section_two_a {
   bottom: -250px; }
 
@@ -479,7 +483,8 @@ img {
   @media (max-width: 860px) {
     .phone-slide {
       flex-direction: column;
-      width: 100%; } }
+      width: 100%;
+      top: 5%; } }
   .phone-slide__one {
     left: 100%; }
     .phone-slide__one.phone-slide--visible {

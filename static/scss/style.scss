@@ -223,6 +223,13 @@ img {
   clip-path: polygon(0 0, 100% 25%, 100% 100%, 0% 100%);
 }
 
+.js_section_one_a {
+  @media (max-width: 860px) {
+    overflow: scroll;
+  }
+
+}
+
 .js_section_two_a {
   bottom: -250px;
 }
@@ -553,6 +560,7 @@ img {
   @media ( max-width: 860px ) {
     flex-direction: column;
     width: 100%;
+    top: 5%;
   }
 
   &__one {
