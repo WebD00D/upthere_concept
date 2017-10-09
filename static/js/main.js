@@ -431,14 +431,6 @@ document.addEventListener("DOMContentLoaded", function() {
       phoneContainerDup.setAttribute("data-phone-four-animated", "no");
     }
 
-    console.log(offset(document.getElementsByClassName("js_section_two_a_25p")[0]).top)
-
-    const sec3a = document.getElementsByClassName("js_section_three_a")[0];
-
-    if ( offset(sec3a).top === 3200 ) {
-     // document.getElementsByClassName("js-phone-container")[0].setAttribute("data-phone-four-animated", "no");
-    }
-
 
   } // end handleScroll
 });
