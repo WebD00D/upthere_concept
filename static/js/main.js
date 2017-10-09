@@ -87,8 +87,6 @@ document.addEventListener("DOMContentLoaded", function() {
       rightShape.classList.remove("right-shape--visible");
     }
 
-    console.log(offset(sectionOneB).top, currentScrollPosition);
-
     if (offset(sectionOneB).top == 800 && currentScrollPosition >= 700) {
       sectionTwoContent.classList.remove("o-none");
     } else {
@@ -366,7 +364,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
           // 2. set data-phone-last-animated to Date.now()
           phoneContainer.setAttribute("data-phone-last-animated", timeNow );
-          phoneContainer.setAttribute("data-in-current-delay", "yes");
+          phoneContainer.setAttribute("data-in-current-delay", "no");
           phoneContainer.setAttribute("data-phone-four-animated", "yes");
 
 
@@ -380,20 +378,12 @@ document.addEventListener("DOMContentLoaded", function() {
       //handlePhoneVisibility("js-phone-four", true);
 
     } else {
+
       handlePhoneVisibility("js-phone-four", false);
     }
 
 
     // END PHONE ANIMATION CODE...
-
-    // const sec_3 = document.getElementsByClassName("section-three")[0];
-    //
-    // if ( offset(sec_3).top == 3200 ) {
-    //   phoneContainer.setAttribute("data-phone-four-animated", "no");
-    // }
-
-
-
 
     if (currentScrollPosition >= offset(sectionTwoB).top) {
       sectionTwoB.classList.remove("section--relative");
@@ -424,6 +414,29 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
       //updateLinks("dark");
     }
+
+    // if left / right shape don't have the visibility class, then reset the what phone has been
+    // animated data attributes.
+
+    const shapeToCheck = document.getElementsByClassName("left-shape")[0];
+
+    if ( !shapeToCheck.classList.contains("left-shape--visible") ) {
+
+      const phoneContainerDup = document.getElementsByClassName("js-phone-container")[0];
+      phoneContainerDup.setAttribute("data-phone-one-animated", "no");
+      phoneContainerDup.setAttribute("data-phone-two-animated", "no");
+      phoneContainerDup.setAttribute("data-phone-three-animated", "no");
+      phoneContainerDup.setAttribute("data-phone-four-animated", "no");
+    }
+
+
+    const sec3a = document.getElementsByClassName("js_section_three_a")[0];
+    console.log(offset(sec3a).top);
+    if ( offset(sec3a).top === 3200 ) {
+     // document.getElementsByClassName("js-phone-container")[0].setAttribute("data-phone-four-animated", "no");
+    }
+
+
   } // end handleScroll
 });
 
@@ -492,6 +505,9 @@ function updateLinks(shade) {
 
 
 function handlePhoneVisibility(el, show) {
+
+  const sectionTwoB = document.getElementsByClassName("js_section_two_b")[0];
+
   if (show) {
     document
       .getElementsByClassName(el)[0]
@@ -500,6 +516,13 @@ function handlePhoneVisibility(el, show) {
     document
       .getElementsByClassName(el)[0]
       .classList.remove("phone-slide--visible");
+
+      if ( el === "js-phone-four" ) {
+
+        document.getElementsByClassName("js-phone-container")[0].setAttribute("data-phone-four-animated", "no");
+
+      }
+
   }
 }
 
