@@ -36,7 +36,7 @@ img {
     justify-content: center;
     align-items: center;
 
-    overflow: hidden;
+    overflow: scroll;
 
     .shape {
       z-index: -1;
@@ -60,7 +60,8 @@ img {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
+        position: relative;
+        top: -50px;
       }
 
       &__left-col {
@@ -280,6 +281,7 @@ img {
 
 
 .m-w-85p { max-width: 85%; margin-left: auto; margin-right: auto;}
+.m-w-200p { max-width: 200px; }
 .m-w-250p { max-width: 250px; }
 .m-w-300p { max-width: 300px; }
 .m-w-600p { max-width: 600px; }
@@ -568,12 +570,30 @@ img {
     top: 5%;
   }
 
+  img {
+    max-width: 250px;
+
+    @media (max-width: 600px) {
+      max-width: 200px;
+    }
+  }
+
   &__one {
     left: 100%;
+
+    @media (max-width: 600px) {
+      top: -100%;
+      left: 0;
+    }
 
     &.phone-slide--visible {
       opacity: 1;
       left: 0;
+
+      @media (max-width: 600px) {
+        top: 5%;
+        opacity: 1;
+      }
     }
 
   }
@@ -581,9 +601,20 @@ img {
   &__two {
     right: 100%;
 
+    @media (max-width: 600px) {
+      top: -100%;
+      left: 0;
+    }
+
+
     &.phone-slide--visible {
       opacity: 1;
       right: 0;
+
+      @media (max-width: 600px) {
+        top: 5%;
+        opacity: 1;
+      }
     }
 
   }
@@ -592,9 +623,19 @@ img {
 
     left: 100%;
 
+    @media (max-width: 600px) {
+      top: -100%;
+      left: 0;
+    }
+
     &.phone-slide--visible {
       opacity: 1;
       left: 0;
+
+      @media (max-width: 600px) {
+        top: 5%;
+        opacity: 1;
+      }
     }
 
   }
@@ -603,9 +644,19 @@ img {
 
     right: 100%;
 
+    @media (max-width: 600px) {
+      top: -100%;
+      left: 0;
+    }
+
     &.phone-slide--visible {
       opacity: 1;
       right: 0;
+
+      @media (max-width: 600px) {
+        top: 5%;
+        opacity: 1;
+      }
     }
 
   }
@@ -662,6 +713,10 @@ img {
 
     @media (min-width: 801px) {
       display: none;
+    }
+
+    @media (max-width: 600px) {
+      top: 48%;
     }
 
     &__indicator {
