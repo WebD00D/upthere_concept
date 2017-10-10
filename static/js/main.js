@@ -2,6 +2,25 @@ document.addEventListener("DOMContentLoaded", function() {
   document.addEventListener("mousewheel", handleScroll);
   document.addEventListener("DOMMouseScroll", handleScroll);
 
+
+  document.getElementById("js_play-video").onclick = function(e){
+    e.preventDefault();
+    document.getElementsByClassName("video-modal")[0]
+    .classList
+    .remove("video-modal--hidden");
+    document.getElementById("video").setAttribute("src", "https://player.vimeo.com/video/176397741?autoplay=1");
+    document.getElementsByClassName("video-modal")[0].setAttribute("video-playing", "yes");
+  }
+
+  document.getElementsByClassName("video-modal")[0].onclick = function(){
+    document.getElementsByClassName("video-modal")[0]
+    .classList
+    .add("video-modal--hidden");
+    document.getElementById("video").setAttribute("src", "");
+    document.getElementsByClassName("video-modal")[0].setAttribute("video-playing", "no");
+  }
+
+
   // initialize phoneLastAnimated time
   const initTime = Date.now();
   document
@@ -11,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function handleScroll(e) {
 
     const isMobile = window.innerWidth <= 860 ? true : false;
-  
+
     const viewportHeight = window.innerHeight;
     const currentScrollPosition = window.scrollY;
     const delta = event.wheelDelta || -event.detail;

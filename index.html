@@ -28,11 +28,20 @@
       	<path d="M84,74.6c0,3.1-0.4,4.9-1.4,6.4c-1.3,2-3.8,3.2-6.4,3.2c-2.6,0-5-1.2-6.3-3.2c-0.8-1.3-1.4-2.8-1.4-6.4 v-12h-3.1v12.4c0,3,0.4,5.1,1.5,7c1.8,3.2,5.3,5.1,9.3,5.1c4,0,7.5-1.9,9.3-5.1c1-1.9,1.5-4,1.5-7V62.7h-3V74.6z"/>
       </g></a>
         <div class="navbar__links">
-          <div>Download Apps</div>
-          <div>Pricing</div>
-          <div>Sign In</div>
-          <div><a href="#" class="js_signup-button upthere_button upthere_button--sm">Sign Up</a></div>
+          <a href="https://upthere.com/download"><div>Download Apps</div></a>
+          <a href="https://upthere.com/pricing"><div>Pricing</div></a>
+          <a href="https://app.upthere.com/signin"><div>Sign In</div></a>
+          <div><a href="https://app.upthere.com/join" class="js_signup-button upthere_button upthere_button--sm">Sign Up</a></div>
         </div>
+      </div>
+
+
+      <div class="video-modal video-modal--hidden" video-playing="no">
+
+        <div class="iframe-container">
+          <iframe id="video" src="" height="100%" width="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+
       </div>
 
       <div class="js_section_one_container">
@@ -44,7 +53,7 @@
             <div class="content-box__left-col fx fx-col fx-a-c">
               <img class="m-w-300p m-w-200p-m m-b-22" src="/static/img/Phones.png" />
               <div class="m-b-22 m-b-0-m">Watch a video</div>
-              <a href="#"><svg width="53" height="53" class="watchsvg" viewBox="0 0 53 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <a id="js_play-video" href="#"><svg width="53" height="53" class="watchsvg" viewBox="0 0 53 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Play Video CTA</title>
                 <desc>Created using Figma</desc>
                 <g id="Canvas" transform="translate(2938 -783)">
@@ -72,7 +81,7 @@
             <div class="content-box__right-col pad-r-18 pad-l-18 fx fx-col fx-j-s fx-a-s">
               <div class="t-left fs-38 fs-24-m m-t-60 m-t-12-m t-center-m">Discover cloud storage <br class="mobile-break" />  that's out of this world</div>
               <div class="m-b-22 t-center-m m-t-12-m">Free up space on all your devices <br class="mobile-break" /> for just $1.99 a month</div>
-              <a href="#" class="upthere_button">Try it now for free!</a>
+              <a href="https://app.upthere.com/join" class="upthere_button">Try it now for free!</a>
             </div>
           </div>
         </div>
@@ -179,7 +188,7 @@
               <div class="content-box">
                   <div class="w-50p w-100p-m">
                     <div class="fs-38 fc-white t-left m-b-48 fs-24-m t-center-m">Get started for free, <br /> no credit card required.</div>
-                    <a href="#" class="upthere_button upthere_button--white dib-m">Sign up now!</a>
+                    <a href="https://app.upthere.com/join" class="upthere_button upthere_button--white dib-m">Sign up now!</a>
                   </div>
                   <div class="w-50p w-100p-m">
                     <img class="m-w-300p m-w-200p-m m-b-22" src="/static/img/Phones.png" />
@@ -190,27 +199,26 @@
                   <div class="footer-box__left">
                     <div class="fx fx-col fx-a-s fx-1 pad-r-18 pad-r-0-m">
                       <div class="fw-bold fs-14 ls-1 m-b-22 fc-white">PRODUCT</div>
-                      <div class="d-none-m fs-14 m-b-22 fc-white">Download Apps</div>
-                      <div class="d-none-m fs-14 m-b-22 fc-white">Pricing</div>
-                      <div class="d-none-m fs-14 m-b-22 fc-white">Support</div>
-                      <div class="d-none-m fs-14 m-b-22 fc-white">Technology</div>
-                      <div class="d-none-m fs-14 m-b-22 fc-white">Status</div>
+                      <a href="https://upthere.com/download"><div class="d-none-m fs-14 m-b-22 fc-white">Download Apps</div></a>
+                      <a href="https://upthere.com/pricing"><div class="d-none-m fs-14 m-b-22 fc-white">Pricing</div></a>
+                      <a href="http://support.upthere.com/"><div class="d-none-m fs-14 m-b-22 fc-white">Support</div></a>
+                      <a href="https://upthere.com/technology"><div class="d-none-m fs-14 m-b-22 fc-white">Technology</div></a>
+                      <a href="https://status.upthere.com/"><div class="d-none-m fs-14 m-b-22 fc-white">Status</div></a>
                     </div>
                     <div class="fx fx-col fx-a-s fx-1 pad-r-18 pad-r-0-m">
                       <div class="fw-bold fs-14 ls-1 m-b-22 fc-white">COMPANY</div>
-                      <div class="d-none-m fs-14 m-b-22 fc-white">Team</div>
-                      <div class="d-none-m fs-14 m-b-22 fc-white">Press</div>
-                      <div class="d-none-m fs-14 m-b-22 fc-white">Jobs</div>
-                      <div class="d-none-m fs-14 m-b-22 fc-white">Contact</div>
-                      <div class="d-none-m fs-14 m-b-22 fc-white">Blog</div>
+                      <a href="https://upthere.com/team"><div class="d-none-m fs-14 m-b-22 fc-white">Team</div></a>
+                      <a href="https://upthere.com/press"><div class="d-none-m fs-14 m-b-22 fc-white">Press</div></a>
+                      <a href="https://upthere.com/jobs"><div class="d-none-m fs-14 m-b-22 fc-white">Jobs</div></a>
+                      <a href="https://upthere.com/contact"><div class="d-none-m fs-14 m-b-22 fc-white">Contact</div></a>
+                      <a href="https://blog.upthere.com/"><div class="d-none-m fs-14 m-b-22 fc-white">Blog</div></a>
                     </div>
                     <div class="fx fx-col fx-a-s fx-1 pad-r-18 pad-r-0-m">
                       <div class="fw-bold fs-14 ls-1 m-b-22 fc-white">LEGAL</div>
-                      <div class="d-none-m fs-14 m-b-22 fc-white">Terms of service</div>
-                      <div class="d-none-m fs-14 m-b-22 fc-white">Privacy</div>
+                      <a href="https://upthere.com/legal/terms-of-service"><div class="d-none-m fs-14 m-b-22 fc-white">Terms of service</div></a>
+                      <a href="https://upthere.com/legal/privacy"><div class="d-none-m fs-14 m-b-22 fc-white">Privacy</div></a>
                     </div>
                   </div>
-
                   <div class="footer-box__right">
                     <a href="https://www.facebook.com/upthereHQ/"><img class="icon icon-facebook" src="/static/img/facebook.png" /></a>
                     <a href="https://twitter.com/upthere"><img class="icon icon-twitter" src="/static/img/twitter.png" /></a>

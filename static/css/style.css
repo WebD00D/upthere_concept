@@ -28,7 +28,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; }
+    overflow: scroll; }
     .section-one .shape {
       z-index: -1;
       background-color: #f5f5f5;
@@ -104,6 +104,10 @@ img {
       max-width: 85%;
       width: 100%;
       transition: opacity 1s ease; }
+      .section-three .footer-box a {
+        text-decoration: none; }
+        .section-three .footer-box a:hover {
+          opacity: 0.8; }
       .section-three .footer-box__container {
         display: flex;
         justify-content: space-between;
@@ -430,6 +434,8 @@ img {
     @media (max-width: 860px) {
       .navbar__links {
         display: none; } }
+    .navbar__links a {
+      text-decoration: none; }
     .navbar__links div {
       color: #cccccc;
       margin-left: 15px;
@@ -596,3 +602,31 @@ img {
     border-radius: 50%; }
     .slide-indicators__indicator--active {
       background-color: #404040; }
+
+.video-modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  z-index: 4; }
+  .video-modal--hidden {
+    display: none; }
+  @media (max-width: 860px) {
+    .video-modal iframe {
+      width: 90%;
+      height: 90%; } }
+  .video-modal .iframe-container {
+    height: 100%;
+    width: 100%;
+    max-width: 900px;
+    max-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }

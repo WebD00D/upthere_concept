@@ -36,7 +36,7 @@ img {
     justify-content: center;
     align-items: center;
 
-    overflow: hidden;
+    overflow: scroll;
 
     .shape {
       z-index: -1;
@@ -138,6 +138,15 @@ img {
       max-width: 85%;
       width: 100%;
       transition: opacity 1s ease;
+
+      a {
+        text-decoration: none;
+
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
 
 
       &__container {
@@ -486,6 +495,10 @@ img {
       display: none;
     }
 
+    a {
+      text-decoration: none;
+    }
+
     div {
       color: #cccccc;
       margin-left: 15px;
@@ -732,6 +745,45 @@ img {
         background-color: #404040
       }
 
+    }
+
+  }
+
+
+  .video-modal {
+
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    background-color: rgba(255,255,255,0.9);
+    overflow: hidden;
+    z-index: 4;
+
+    &--hidden {
+      display: none;
+    }
+
+    iframe {
+      @media (max-width: 860px) {
+        width: 90%;
+        height: 90%;
+      }
+    }
+
+    .iframe-container {
+      height: 100%;
+      width: 100%;
+      max-width: 900px;
+      max-height: 600px;
+      display: flex;
+    justify-content: center;
+    align-items: center;
     }
 
   }
