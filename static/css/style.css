@@ -176,6 +176,12 @@ img {
 .js_section_two_b {
   bottom: -250px; }
 
+.js_footer-phones {
+  position: relative;
+  right: -100%; }
+  .js_footer-phones--active {
+    right: 0; }
+
 .js_section_three_a {
   height: 1200px;
   background-image: url("/static/img/trees.png");
@@ -253,6 +259,15 @@ img {
 
 .m-w-600p {
   max-width: 600px; }
+
+.d-none {
+  display: none; }
+
+.opacity-none {
+  opacity: 0; }
+
+.transition-ease {
+  transition: .4s ease; }
 
 @media (max-width: 860px) {
   .m-w-200p-m {

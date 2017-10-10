@@ -401,6 +401,21 @@ document.addEventListener("DOMContentLoaded", function() {
       //updateLinks("dark");
     }
 
+
+    // Handle footer phone animation..
+    const footerSection = document.getElementsByClassName("section-three")[0];
+    const footerPhones = document.getElementsByClassName("js_footer-phones")[0];
+
+    if ( currentScrollPosition >= offset(footerSection).top + 200 ) {
+      // animate in the phones
+      footerPhones.classList.remove("opacity-none");
+      footerPhones.classList.add("js_footer-phones--active");
+    } else {
+      // hide 'em
+      footerPhones.classList.add("opacity-none");
+      footerPhones.classList.remove("js_footer-phones--active");
+    }
+
     // if left / right shape don't have the visibility class, then reset the what phone has been
     // animated data attributes.
 
@@ -415,6 +430,8 @@ document.addEventListener("DOMContentLoaded", function() {
       phoneContainerDup.setAttribute("data-phone-three-animated", "no");
       phoneContainerDup.setAttribute("data-phone-four-animated", "no");
     }
+
+
   } // end handleScroll
 });
 

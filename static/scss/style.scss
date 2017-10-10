@@ -237,7 +237,6 @@ img {
   @media (max-width: 860px) {
     overflow: scroll;
   }
-
 }
 
 .js_section_two_a {
@@ -246,6 +245,16 @@ img {
 
 .js_section_two_b {
   bottom: -250px;
+}
+
+.js_footer-phones {
+  position: relative;
+  right: -100%;
+
+  &--active {
+    right: 0;
+  }
+
 }
 
 .js_section_three_a {
@@ -294,6 +303,18 @@ img {
 .m-w-250p { max-width: 250px; }
 .m-w-300p { max-width: 300px; }
 .m-w-600p { max-width: 600px; }
+
+.d-none {
+  display: none;
+}
+
+.opacity-none {
+  opacity: 0;
+}
+
+.transition-ease {
+  transition: .4s ease;
+}
 
 .m-w-200p-m {
 
