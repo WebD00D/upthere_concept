@@ -28,7 +28,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: scroll; }
+    overflow: hidden; }
     .section-one .shape {
       z-index: -1;
       background-color: #f5f5f5;
