@@ -633,10 +633,13 @@ img {
   z-index: 4; }
   .video-modal--hidden {
     display: none; }
-  @media (max-width: 860px) {
-    .video-modal iframe {
-      width: 90%;
-      height: 90%; } }
+  .video-modal iframe {
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6); }
+    @media (max-width: 860px) {
+      .video-modal iframe {
+        width: 90%;
+        height: 90%; } }
   .video-modal .iframe-container {
     height: 100%;
     width: 100%;
