@@ -2,24 +2,31 @@ document.addEventListener("DOMContentLoaded", function() {
   document.addEventListener("mousewheel", handleScroll);
   document.addEventListener("DOMMouseScroll", handleScroll);
 
-
-  document.getElementById("js_play-video").onclick = function(e){
+  document.getElementById("js_play-video").onclick = function(e) {
     e.preventDefault();
-    document.getElementsByClassName("video-modal")[0]
-    .classList
-    .remove("video-modal--hidden");
-    document.getElementById("video").setAttribute("src", "https://player.vimeo.com/video/176397741?autoplay=1");
-    document.getElementsByClassName("video-modal")[0].setAttribute("video-playing", "yes");
-  }
+    document
+      .getElementsByClassName("video-modal")[0]
+      .classList.remove("video-modal--hidden");
+    document
+      .getElementById("video")
+      .setAttribute(
+        "src",
+        "https://player.vimeo.com/video/176397741?autoplay=1"
+      );
+    document
+      .getElementsByClassName("video-modal")[0]
+      .setAttribute("video-playing", "yes");
+  };
 
-  document.getElementsByClassName("video-modal")[0].onclick = function(){
-    document.getElementsByClassName("video-modal")[0]
-    .classList
-    .add("video-modal--hidden");
+  document.getElementsByClassName("video-modal")[0].onclick = function() {
+    document
+      .getElementsByClassName("video-modal")[0]
+      .classList.add("video-modal--hidden");
     document.getElementById("video").setAttribute("src", "");
-    document.getElementsByClassName("video-modal")[0].setAttribute("video-playing", "no");
-  }
-
+    document
+      .getElementsByClassName("video-modal")[0]
+      .setAttribute("video-playing", "no");
+  };
 
   // initialize phoneLastAnimated time
   const initTime = Date.now();
@@ -28,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
     .setAttribute("data-phone-last-animated", initTime);
 
   function handleScroll(e) {
-
     const isMobile = window.innerWidth <= 860 ? true : false;
 
     const viewportHeight = window.innerHeight;
@@ -171,11 +177,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const timeNow = Date.now();
     const delay = 1500;
 
-    // NOTE:
-    // When a section animation is initialized - set a data attribute for
-    // when it was animated. If user tries scrolling again before the delay,
-    // disable the scroll.
-
     const phoneContainer = document.getElementsByClassName(
       "js-phone-container"
     )[0];
@@ -204,7 +205,9 @@ document.addEventListener("DOMContentLoaded", function() {
       offset(section_two_a_100p).top <= offset(sectionTwoB).top &&
       offset(section_two_a_100p).top >= offset(sectionTwoB).top - 200
     ) {
-      //NOTE: Alot of this code will be placed in a separate function..
+
+      // TODO: ALL OF THIS CHECKING WHAT SECTION WE'RE IN SHOULD BE PLACED IN ITS OWN FUNCTION,
+      // AND JUST PASS THE NAME OF THE ELEMENT TO CHECK..
 
       // setting all other data-phone-animated to "no".
       phoneContainer.setAttribute("data-phone-two-animated", "no");
@@ -389,8 +392,6 @@ document.addEventListener("DOMContentLoaded", function() {
       "js_section_three_a"
     )[0];
 
-    //  const phone_four = document.getElementsByClassName("js-phone-four")[0];
-
     if (
       offset(section_three_a).top === 3200 &&
       currentScrollPosition > 3400 &&
@@ -401,12 +402,11 @@ document.addEventListener("DOMContentLoaded", function() {
       //updateLinks("dark");
     }
 
-
     // Handle footer phone animation..
     const footerSection = document.getElementsByClassName("section-three")[0];
     const footerPhones = document.getElementsByClassName("js_footer-phones")[0];
 
-    if ( currentScrollPosition >= offset(footerSection).top + 200 ) {
+    if (currentScrollPosition >= offset(footerSection).top + 200) {
       // animate in the phones
       footerPhones.classList.remove("opacity-none");
       footerPhones.classList.add("js_footer-phones--active");
@@ -430,8 +430,6 @@ document.addEventListener("DOMContentLoaded", function() {
       phoneContainerDup.setAttribute("data-phone-three-animated", "no");
       phoneContainerDup.setAttribute("data-phone-four-animated", "no");
     }
-
-
   } // end handleScroll
 });
 
