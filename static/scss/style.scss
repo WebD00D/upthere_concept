@@ -22,7 +22,8 @@ img {
   margin-right: auto;
   position: relative;
   width: 100%;
-  max-width: 992px;
+  //max-width: 992px;
+  max-width: 1080px;
   overflow: hidden;
 }
 
@@ -40,13 +41,15 @@ img {
 
     .shape {
       z-index: -1;
-      background-color: #f5f5f5;
+//       background: #F4F4F4 @ 0%
+// #FFFFFF @ 99.45%;
+      background: linear-gradient(to left, #F4F4F4 0%, #FFFFFF 99%);
       height: 1500px;
       width: 1000px;
-      top: -75%;
-      left: 50%;
+      top: -100%;
+      left: 15%;
       position: absolute;
-      transform: rotate(-45deg);
+      transform: rotate(-65deg);
       filter: drop-shadow(-4px 3px 6px rgba(01,01,01,0.08));
     }
 
@@ -201,7 +204,8 @@ img {
   &--fixed {
     position: fixed;
     width: 100%;
-    max-width: 992px;
+    //max-width: 992px;
+    max-width: 1080px;
     top: 0px;
   }
 
@@ -209,7 +213,8 @@ img {
   &--fixed-b {
     position: fixed;
     width: 100%;
-    max-width: 992px;
+    //max-width: 992px;
+    max-width: 1080px;
     top: -250px;
   }
 
@@ -293,6 +298,7 @@ img {
 .w-50p { width: 50%; }
 
 .m-b-22 { margin-bottom: 22px; }
+.m-b-26 { margin-bottom: 26px; }
 .m-b-48 { margin-bottom: 48px; }
 .m-t-60 { margin-top: 60px; }
 
@@ -453,6 +459,7 @@ img {
 .overflow-hidden { overflow: hidden; }
 
 .fc-white { color: #FFFFFF; }
+.fc-copy { color: #404040; }
 
 .bg-light-grey { background-color: #f5f5f5; }
 .bg-dark-grey { background-color: #cccccc; }
