@@ -115,7 +115,9 @@ document.addEventListener("DOMContentLoaded", function() {
       rightShape.classList.remove("right-shape--visible");
     }
 
-    if (offset(sectionOneB).top == 800 && currentScrollPosition >= 700) {
+      console.log(offset(sectionOneB).top, currentScrollPosition);
+
+    if (offset(sectionOneB).top == 800 && currentScrollPosition >= 900) {
       sectionTwoContent.classList.remove("o-none");
     } else {
       if (sectionOneB.classList.contains("section--fixed-b")) {
