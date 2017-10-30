@@ -17,7 +17,7 @@ img {
   margin-right: auto;
   position: relative;
   width: 100%;
-  max-width: 1080px;
+  max-width: 1440px;
   overflow: hidden; }
 
 .section {
@@ -31,10 +31,10 @@ img {
     overflow: hidden; }
     .section-one .shape {
       z-index: -1;
-      background: linear-gradient(to left, #F4F4F4 0%, #FFFFFF 99%);
-      height: 1500px;
-      width: 1000px;
-      top: -100%;
+      background: linear-gradient(to top, #F5F5F5 0%, #FFFFFF 90%);
+      height: 2000px;
+      width: 1400px;
+      top: -150%;
       left: 15%;
       position: absolute;
       transform: rotate(-65deg);
@@ -43,6 +43,7 @@ img {
       display: flex;
       justify-content: center;
       align-items: flex-start;
+      max-width: 980px;
       width: 100%; }
       @media (max-width: 860px) {
         .section-one .content-box {
@@ -80,8 +81,12 @@ img {
       justify-content: center;
       align-items: center;
       width: 100%;
+      max-width: 1100px;
       transition: opacity 1s ease;
-      margin-top: 25%; }
+      margin-top: 10%; }
+      @media (max-width: 860px) {
+        .section-two .content-box {
+          margin-top: 25%; } }
   .section-three {
     height: 100%;
     width: 100%;
@@ -90,7 +95,7 @@ img {
     justify-content: flex-end;
     align-items: center; }
     .section-three .content-box {
-      max-width: 85%;
+      max-width: 980px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -101,7 +106,7 @@ img {
           flex-direction: column-reverse; } }
     .section-three .footer-box {
       padding-top: 100px;
-      max-width: 85%;
+      max-width: 980px;
       width: 100%;
       transition: opacity 1s ease; }
       .section-three .footer-box a {
@@ -111,7 +116,6 @@ img {
       .section-three .footer-box__container {
         display: flex;
         justify-content: space-between;
-        width: 100%;
         border-top: 1px solid #FFFFFF;
         padding-top: 48px;
         padding-left: 22px;
@@ -145,12 +149,12 @@ img {
   .section--fixed {
     position: fixed;
     width: 100%;
-    max-width: 1080px;
+    max-width: 1440px;
     top: 0px; }
   .section--fixed-b {
     position: fixed;
     width: 100%;
-    max-width: 1080px;
+    max-width: 1440px;
     top: -250px; }
   .section--one-b-fixed {
     position: fixed;
@@ -182,9 +186,12 @@ img {
   .js_footer-phones--active {
     right: 0; }
 
+.js_footer-content {
+  transition: 1s ease; }
+
 .js_section_three_a {
   height: 1200px;
-  background-image: url("/static/img/trees.png");
+  background-image: url("/static/img/trees-new.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom; }
@@ -260,8 +267,14 @@ img {
 .m-w-300p {
   max-width: 300px; }
 
+.m-w-350p {
+  max-width: 350px; }
+
 .m-w-600p {
   max-width: 600px; }
+
+.m-w-980p {
+  max-width: 980px; }
 
 .d-none {
   display: none; }
@@ -400,6 +413,9 @@ img {
 .bg-opaque {
   background-color: rgba(255, 255, 255, 0.4); }
 
+.bg-dark-blue {
+  background-color: #21273c; }
+
 .b-black {
   border: 1px solid black; }
 
@@ -437,7 +453,7 @@ img {
 .navbar {
   height: 100px;
   width: 100%;
-  max-width: 992px;
+  max-width: 1440px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -447,7 +463,7 @@ img {
   .navbar__logo {
     height: 60px;
     width: 100px;
-    margin-left: 15px; }
+    margin-left: 25px; }
   .navbar__links {
     display: flex;
     align-items: center;
@@ -460,7 +476,7 @@ img {
     .navbar__links div {
       color: #cccccc;
       margin-left: 15px;
-      margin-right: 15px; }
+      margin-right: 25px; }
       .navbar__links div.white {
         color: #FFFFFF; }
 
@@ -598,7 +614,7 @@ img {
 
 .logo-link-wrap {
   color: #404040;
-  transition: .2s ease; }
+  transition: 1s ease; }
   .logo-link-wrap--white {
     color: #FFFFFF; }
 

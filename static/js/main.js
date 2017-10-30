@@ -155,6 +155,16 @@ document.addEventListener("DOMContentLoaded", function() {
       updateLinks("dark");
     }
 
+    if ( leftShape.style.left < "-60%" )  {
+
+      if ( document.getElementsByClassName("logo-link-wrap")[0].classList.contains("logo-link-wrap--white") ) {
+        document
+          .getElementsByClassName("logo-link-wrap")[0]
+          .classList.remove("logo-link-wrap--white");
+      }
+
+    }
+
     const section_two_a_25p = document.getElementsByClassName(
       "js_section_two_a_25p"
     )[0];
@@ -405,15 +415,18 @@ document.addEventListener("DOMContentLoaded", function() {
     // Handle footer phone animation..
     const footerSection = document.getElementsByClassName("section-three")[0];
     const footerPhones = document.getElementsByClassName("js_footer-phones")[0];
+    const footerContent = document.getElementsByClassName("js_footer-content")[0];
 
     if (currentScrollPosition >= offset(footerSection).top + 200) {
       // animate in the phones
       footerPhones.classList.remove("opacity-none");
       footerPhones.classList.add("js_footer-phones--active");
+      footerContent.classList.remove("opacity-none");
     } else {
       // hide 'em
       footerPhones.classList.add("opacity-none");
       footerPhones.classList.remove("js_footer-phones--active");
+      footerContent.classList.add("opacity-none");
     }
 
     // if left / right shape don't have the visibility class, then reset the what phone has been
@@ -463,6 +476,10 @@ function updateLinks(shade) {
       document
         .getElementsByClassName("js_signup-button")[0]
         .classList.add("upthere_button--white");
+
+        document
+          .getElementsByClassName("logo-link-wrap")[0]
+          .classList.add("logo-link-wrap--white");
 
       const section_one_b = document.getElementsByClassName(
         "js_section_one_b"
