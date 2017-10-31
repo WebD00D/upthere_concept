@@ -78,8 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			rightShape.classList.remove('right-shape--visible');
 		}
 
-		console.log(offset(sectionOneB).top, currentScrollPosition);
-
 		if (offset(sectionOneB).top == 800 && currentScrollPosition >= 900) {
 			sectionTwoContent.classList.remove('o-none');
 		} else {
@@ -152,8 +150,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			offset(section_two_a_100p).top <= offset(sectionTwoB).top &&
 			offset(section_two_a_100p).top >= offset(sectionTwoB).top - 200
 		) {
-			// TODO: ALL OF THIS CHECKING WHAT SECTION WE'RE IN SHOULD BE PLACED IN ITS OWN FUNCTION,
-			// AND JUST PASS THE NAME OF THE ELEMENT TO CHECK..
 
 			// setting all other data-phone-animated to "no".
 			phoneContainer.setAttribute('data-phone-two-animated', 'no');
@@ -319,11 +315,15 @@ document.addEventListener('DOMContentLoaded', function() {
 			handlePhoneVisibility('js-phone-four', false);
 		}
 
-		// END PHONE ANIMATION CODE...
+    // END PHONE ANIMATION CODE...
+    
+    console.log( currentScrollPosition, offset(sectionTwoB).top )
 
-		if (currentScrollPosition >= offset(sectionTwoB).top) {
-			sectionTwoB.classList.remove('section--relative');
-			sectionTwoB.classList.add('section--fixed');
+		if (currentScrollPosition >= offset(sectionTwoB).top ) {
+      
+      sectionTwoB.classList.remove('section--relative');
+      sectionTwoB.classList.add('section--fixed');
+			
 		}
 
 		if (sectionTwoB.classList.contains('section--fixed') && currentScrollPosition <= 2400) {
@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			footerContent.classList.add('opacity-none');
 		}
 
-		// if left / right shape don't have the visibility class, then reset the what phone has been
+		// if left / right shape don't have the visibility class, then reset what phone has been
 		// animated data attributes.
 
 		const shapeToCheck = document.getElementsByClassName('left-shape')[0];
