@@ -749,6 +749,18 @@ img {
 		&--right {
 			left: auto;
 			right: 21px;
+			
+
+			@media (max-width: 860px) {
+				right: calc(50% - 103px);
+			}
+
+			@media (max-width: 600px) {
+				max-width: 165px !important;
+				right: calc(50% - 82px);
+				top: 45px;
+			}
+
 		}
 	}
 
@@ -784,7 +796,7 @@ img {
 			right: 0;
 
 			@media (max-width: 600px) {
-				top: 5%;
+				top: 10%;
 				opacity: 1;
 			}
 		}
@@ -803,7 +815,7 @@ img {
 			left: 0;
 
 			@media (max-width: 600px) {
-				top: 5%;
+				top: 10%;
 				opacity: 1;
 			}
 		}
@@ -822,7 +834,7 @@ img {
 			right: 0;
 
 			@media (max-width: 600px) {
-				top: 5%;
+				top: 10%;
 				opacity: 1;
 			}
 		}
