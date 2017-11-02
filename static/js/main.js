@@ -302,11 +302,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 					// 2. set data-phone-last-animated to Date.now()
 					phoneContainer.setAttribute('data-phone-last-animated', timeNow);
-					phoneContainer.setAttribute('data-in-current-delay', 'no');
+					phoneContainer.setAttribute('data-in-current-delay', 'yes');
 					phoneContainer.setAttribute('data-phone-four-animated', 'yes');
 				} else {
 					// else it has an we don't need to run anything let the user scroll.
 					// we'll return false here for shouldAnimationDelay();
+					
+
 				}
 			}
 
@@ -315,16 +317,17 @@ document.addEventListener('DOMContentLoaded', function() {
 			handlePhoneVisibility('js-phone-four', false);
 		}
 
-    // END PHONE ANIMATION CODE...
+	// END PHONE ANIMATION CODE...
     
-		if (currentScrollPosition >= offset(sectionTwoB).top ) {
-      
-      sectionTwoB.classList.remove('section--relative');
-      sectionTwoB.classList.add('section--fixed');
-			
+		if (currentScrollPosition >= offset(sectionTwoB).top  ) {
+      		sectionTwoB.classList.remove('section--relative');
+	  		sectionTwoB.classList.add('section--fixed');
+	  
 		}
 
-		if (sectionTwoB.classList.contains('section--fixed') && currentScrollPosition <= 2400) {
+		console.log(currentScrollPosition)
+
+		if (sectionTwoB.classList.contains('section--fixed') ) {
 			sectionTwoB.classList.add('section--relative');
 			sectionTwoB.classList.remove('section--fixed');
 		}
@@ -351,11 +354,13 @@ document.addEventListener('DOMContentLoaded', function() {
 			footerPhones.classList.remove('opacity-none');
 			footerPhones.classList.add('js_footer-phones--active');
 			footerContent.classList.remove('opacity-none');
+			updateLinks("light");
 		} else {
 			// hide 'em
 			footerPhones.classList.add('opacity-none');
 			footerPhones.classList.remove('js_footer-phones--active');
 			footerContent.classList.add('opacity-none');
+			updateLinks("dark")
 		}
 
 		// if left / right shape don't have the visibility class, then reset what phone has been
