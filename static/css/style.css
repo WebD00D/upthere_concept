@@ -96,6 +96,8 @@ img {
     justify-content: flex-end;
     align-items: center; }
     .section-three .content-box {
+      position: relative;
+      top: -80px;
       max-width: 980px;
       display: flex;
       justify-content: center;
@@ -166,8 +168,8 @@ img {
   clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%); }
 
 .angle-right {
-  -webkit-clip-path: polygon(0 0, 100% 18%, 100% 100%, 0% 100%);
-  clip-path: polygon(0 0, 100% 18%, 100% 100%, 0% 100%); }
+  -webkit-clip-path: polygon(0 0, 100% 25%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 25%, 100% 100%, 0% 100%); }
 
 @media (max-width: 860px) {
   .js_section_one_a {
@@ -189,7 +191,7 @@ img {
   transition: 1s ease; }
 
 .js_section_three_a {
-  height: 1200px;
+  height: 1600px;
   background-image: url("/static/img/trees-new.jpeg");
   background-size: cover;
   background-repeat: no-repeat;

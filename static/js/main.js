@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		const footerPhones = document.getElementsByClassName('js_footer-phones')[0];
 		const footerContent = document.getElementsByClassName('js_footer-content')[0];
 
-		if (currentScrollPosition >= offset(footerSection).top + 200) {
+		if (currentScrollPosition >= offset(footerSection).top + 400) {
 			// animate in the phones
 			footerPhones.classList.remove('opacity-none');
 			footerPhones.classList.add('js_footer-phones--active');
