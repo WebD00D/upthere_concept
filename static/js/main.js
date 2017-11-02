@@ -317,8 +317,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // END PHONE ANIMATION CODE...
     
-    console.log( currentScrollPosition, offset(sectionTwoB).top )
-
 		if (currentScrollPosition >= offset(sectionTwoB).top ) {
       
       sectionTwoB.classList.remove('section--relative');
