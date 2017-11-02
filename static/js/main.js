@@ -292,8 +292,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					e.preventDefault();
 				}
 			} else {
-				// delayed === no
-
+	
 				// has this section already been animated in the same "section scroll session" ?
 				if (phoneContainer.getAttribute('data-phone-four-animated') === 'no') {
 					// 1. run the animation.
@@ -307,8 +306,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				} else {
 					// else it has an we don't need to run anything let the user scroll.
 					// we'll return false here for shouldAnimationDelay();
-					
-
 				}
 			}
 

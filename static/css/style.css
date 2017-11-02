@@ -97,7 +97,7 @@ img {
     align-items: center; }
     .section-three .content-box {
       position: relative;
-      top: -80px;
+      top: -100px;
       max-width: 980px;
       display: flex;
       justify-content: center;
@@ -559,27 +559,27 @@ img {
         max-width: 200px; } }
   .phone-slide__gif {
     position: absolute;
-    max-width: 207px !important;
-    left: 21px;
-    top: 50px; }
+    max-width: 220px !important;
+    left: 15px;
+    top: 56px; }
     @media (max-width: 860px) {
       .phone-slide__gif {
         left: calc(50% - 103px); } }
     @media (max-width: 600px) {
       .phone-slide__gif {
-        max-width: 165px !important;
-        left: calc(50% - 83px);
+        max-width: 176px !important;
+        left: calc(50% - 88px);
         top: 45px; } }
     .phone-slide__gif--right {
       left: auto;
-      right: 21px; }
+      right: 15px; }
       @media (max-width: 860px) {
         .phone-slide__gif--right {
           right: calc(50% - 103px); } }
       @media (max-width: 600px) {
         .phone-slide__gif--right {
-          max-width: 165px !important;
-          right: calc(50% - 82px);
+          max-width: 176px !important;
+          right: calc(50% - 88px);
           top: 45px; } }
   .phone-slide__one {
     left: 100%; }
