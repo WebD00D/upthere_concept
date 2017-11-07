@@ -25,6 +25,10 @@ app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/scroll', function(req, res) {
+	res.sendFile(__dirname + '/scroll.html');
+});
+
 app.listen(process.env.PORT || 8081, function() {
 	console.log('Listening on port 8081!');
 });

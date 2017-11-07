@@ -948,3 +948,41 @@ img {
 		align-items: center;
 	}
 }
+
+
+
+
+
+// SCROLLR CONCEPTUAL STYLES.... 
+
+
+
+.left {
+	position: fixed;
+	width: 80%;
+	height: 100%;
+	z-index: 0;
+	transform: skew(-40deg, 0deg);
+	background-color: #F5F5F5;
+	filter: drop-shadow(16px 16px 20px #CCCCCC);
+	z-index: 2;
+}
+
+.right {
+	position: fixed;
+	width: 80%;
+	height: 100%;
+	z-index: 0;
+	transform: skew(-40deg, 0deg);
+	background-color: #F2F2F2;
+	z-index: 1;
+}
+
+.phone-me {
+	position: fixed;
+	z-index: 3;
+	max-width: 400px;
+	width: 25%;
+	top: 10%;
+}
+
